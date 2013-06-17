@@ -5247,7 +5247,7 @@ input[type="submit"].btn.btn-mini {
 
 .modal-body {
   position: relative;
-  max-height: 400px;
+  max-height: 650sipx;
   padding: 15px;
   overflow-y: auto;
 }
@@ -5257,6 +5257,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .modal-footer {
+    w
   padding: 14px 15px 15px;
   margin-bottom: 0;
   text-align: right;
@@ -6171,4 +6172,35 @@ a.badge:focus {
 }
 .submit_login {
     margin-top:5px;
+}
+.row-fluid_right
+{
+  width: 100%;
+  *zoom: 1;
+  float:right;
+}
+.sidebar-nav-fixed {
+    padding: 0px 0;
+    position:fixed;
+    left:20px;
+    top:40px;
+    width:250px;
+    right:0;
+}
+
+.row-fluid > .span-fixed-sidebar {
+    margin-left: 290px;
+}
+.contenu {
+    height:530px;
+}
+.footer
+{
+    position:fixed;
+}
+.btn_panier {
+    margin-left:25px;
+      -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
 }
