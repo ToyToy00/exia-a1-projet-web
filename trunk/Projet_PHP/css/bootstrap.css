@@ -6165,3 +6165,10 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+
+.txtbx_login {
+    width:105px;
+}
+.submit_login {
+    margin-top:5px;
+}
