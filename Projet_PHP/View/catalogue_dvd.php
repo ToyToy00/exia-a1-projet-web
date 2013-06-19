@@ -23,7 +23,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </a>
-                      <a class="brand" href="#"><span style="color:red;">E</span>xi<span style="color:red;">@</span>Store</a>
+                      <a class="brand" href="index.php"><span style="color:red;">E</span>xi<span style="color:red;">@</span>Store</a>
                     <div class="nav-collapse">
                       <ul class="nav">
                         <li><a href="index.php">Accueil</a></li>

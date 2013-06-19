@@ -9,11 +9,21 @@ class authentification_class extends router {
     }
 
     function index() {
-
+        if(isset($_SESSION['user']))
+        {
+            $this->registry->template->message = "Vous êtes déjà connecté";
+            $this->registry->template->show('message');
+        }else{
         $this->registry->template->show('authentification');
-
+        }
     }
-
+    function logout()
+    {
+        session_unset();
+        session_destroy();
+        $this->registry->template->message = "Vous êtes déconnecté";
+            $this->registry->template->show('message');
+    }
     function login() {
 
         if (isset($_POST['comail'])) {
@@ -25,13 +35,17 @@ class authentification_class extends router {
                 $resultat = $this->registry->db->authentification_pdo->VerifAuthentification($comail, $comdp);
 
                 if ($resultat != '') {
-                    //$_SESSION['user'] = array($comail, $comdp);
+                    $_SESSION['user'] = array();
+                    $_SESSION['user']['user_info'] = $comail;
+                    
+                   
                     if($resultat['Admin'] == true)
                     {
+                        $_SESSION['user']['user_admin'] = 1;
                        // $_SESSION['admin'] = $_SESSION['user'];
-                        echo "admin";
+                       
                     }
-                    $this->registry->template->message = "Yes";
+                    $this->registry->template->message = "Connecté";
                 } else {
                     $this->registry->template->message = "Email ou mot de passe invalide";
                 }
@@ -64,6 +78,7 @@ class authentification_class extends router {
                 {
                     $resultat = $this->registry->db->authentification_pdo->InsertInscriptionClient($Email, $Mdp, $Nom, $Prenom);
                     $resultat2 = $this->registry->db->authentification_pdo->InsertInscriptionAdresse($Adresse, $Ville, $CP);
+                    $this->registry->template->message = "Inscrit. Veuillez vous connecter";
                 }
                 else 
                 {
