@@ -1,15 +1,12 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+echo str_replace('C:\wamp\www\\','/',__SITE_PATH);
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="http://localhost/Projet_PHP/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo str_replace('C:\wamp\www','',__SITE_PATH); ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
         <!-- Le styles -->
         <link href="../assets/css/bootstrap.css" rel="stylesheet">
         <style>
