@@ -1,4 +1,5 @@
 <?php
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -62,13 +63,13 @@
             document.getElementById("VerifEmaili").className = "icon-remove";
         }
 
-        if (document.formInscription.Nom.value !== "" && myRegExpNomPrenom.test(document.formInscription.Nom.value) === true) {
+        if (document.formInscription.Nom.value !== "" /*&& myRegExpNomPrenom.test(document.formInscription.Nom.value) === true*/) {
             document.getElementById("Nomi").className = "icon-ok";
         }
         else {
             document.getElementById("Nomi").className = "icon-remove";
         }
-        if (document.formInscription.Prenom.value !== "" && myRegExpNomPrenom.test(document.formInscription.Prenom.value) === true) {
+        if (document.formInscription.Prenom.value !== ""/* && myRegExpNomPrenom.test(document.formInscription.Prenom.value) === true*/) {
             document.getElementById("Prenomi").className = "icon-ok";
         }
         else {
@@ -119,10 +120,10 @@
             <table>
                 <tr>
                     <td>
-                        <form class="form-signin" style="display:inline-block;vertical-align:center;">
+                        <form class="form-signin" action="login" method="POST" style="display:inline-block;vertical-align:center;">
                             <h2 class="form-signin-heading">Connexion</h2>
-                            <input type="text" class="input-block-level" placeholder="Email address">
-                            <input type="password" class="input-block-level" placeholder="Password">
+                            <input type="text" class="input-block-level" placeholder="Email address" name="comail">
+                            <input type="password" class="input-block-level" placeholder="Password" name="comdp">
                             <label class="checkbox">
                                 <input type="checkbox" value="remember-me"> Remember me
                             </label>
@@ -131,7 +132,7 @@
                     </td>
                     <td> </td>
                     <td>
-                        <form class="form-signin" method="GET" name="formInscription" onsubmit="valider();" style="display:inline-block;">
+                        <form class="form-signin" action="inscription" method="POST" name="formInscription" onsubmit="valider();" style="display:inline-block;">
                             <h2 class="form-signin-heading">Inscription</h2>
                             <input type="text" class="input-block-level" onchange="valider();" placeholder="Adresse email" name="Email">     
                             <i class="icon-remove" style="" id="Emaili"> </i>
