@@ -98,9 +98,9 @@ class router {
         } else {
             /*             * * get the parts of the route ** */
             $parts = explode('/', $route);
-            $this->controller = $parts[0];
+            $this->controller = strtolower($parts[0]);
             if (isset($parts[1])) {
-                $this->action = $parts[1];
+                $this->action = strtolower($parts[1]);
             }
         }
 
