@@ -26,23 +26,23 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </a>
-                      <a class="brand" href="#"><span style="color:red;">E</span>xi<span style="color:red;">@</span>Store</a>
+                      <a class="brand" href="<?php echo __SITE_URL; ?>/"><span style="color:red;">E</span>xi<span style="color:red;">@</span>Store</a>
                     <div class="nav-collapse">
                       <ul class="nav">
                         <li class="active"><a href="index.php">Accueil</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catalogue <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="catalogue_cd.php">CD</a></li>
-                          <li><a href="catalogue_dvd.php">DVD</a></li>
+                          <li><a href="<?php echo __SITE_URL; ?>/catalogue/cd">CD</a></li>
+                          <li><a href="<?php echo __SITE_URL; ?>/catalogue/dvd">DVD</a></li>
                           <li><a href="#">Recherche</a></li>
                         </ul>
                     </li>
                       </ul>
 
-                        <form class="navbar-form pull-right" action="<?php echo __SITE_URL; ?>/authentification/login" method="POST" >
+                       
                         <?php echo $connect_nav; ?>
-                        </form>
+                       
                     </div><!--/.nav-collapse -->
                      
                   </div>

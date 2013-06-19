@@ -23,7 +23,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </a>
-                      <a class="brand" href="#"><span style="color:red;">E</span>xi<span style="color:red;">@</span>Store</a>
+                      <a class="brand" href="index.php"><span style="color:red;">E</span>xi<span style="color:red;">@</span>Store</a>
                     <div class="nav-collapse">
                       <ul class="nav">
                         <li><a href="index.php">Accueil</a></li>
@@ -42,12 +42,10 @@
                         <input type="password" class="txtbx_login" placeholder="Mot de Passe">
                         <button type="submit" class="submit_login" class="btn">Se Connecter</button>
                         </div>
-                    </div><!--/.nav-collapse -->
-                     
-                  </div>
-                </div>
-       
-              </div>        
+                    </div><!--/.nav-collapse -->               
+                  </div><!--/.container -->   
+                </div><!--/.navbar-inner -->         
+              </div><!--/.navbar-fixed-top -->     
     </nav>
     <body>
         <div class="row-fluid">

@@ -33,7 +33,7 @@
 
 .input-block-level {
   display: block;
-  width: 90%;
+  width: 100%;
   min-height: 30px;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -389,8 +389,8 @@ a:focus {
 }
 
 .row-fluid {
+    height:100%;
   width: 100%;
-  min-height: 800px;
   *zoom: 1;
 }
 
@@ -6199,7 +6199,6 @@ a.badge:focus {
     top:40px;
     width:250px;
     right:0;
-    overflow-y: auto;
 }
 
 .row-fluid > .span-fixed-sidebar {
@@ -6239,4 +6238,22 @@ nom_article {
       -webkit-border-radius: 12px;
      -moz-border-radius:12px;
           border-radius: 12px;
+}
+.img_detail_article {
+        height:250px;
+        width:250px;
+}
+inline-block {
+    display:inline;
+}
+.btn_add_panier_detail {
+    margin-top:30%;
+            margin-left:25%;
+      -webkit-border-radius: 12px;
+     -moz-border-radius:12px;
+          border-radius: 12px;
+}
+.detail_detail_article {
+        height:400px;
+        width:250px;
 }
