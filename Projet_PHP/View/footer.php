@@ -17,7 +17,7 @@
                         <div class="well">
                             <div class="well_blanc">
                                 <!-- <?php ?> -->
-                                <li><a href="#">Link</a></li>
+                                <li><a href="#">Produit 1</a></li>
                                 <li><a href="#">Link</a></li>
                                 <li><a href="#">Link</a></li>
                                 <li><a href="#">Link</a></li>
