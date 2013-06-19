@@ -8,15 +8,15 @@
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
-    <div class="active item"><img alt="" src="img/carousel_first.jpg"/>        <div class="carousel-caption">
+    <div class="active item"><img alt="" src="<?php echo __SITE_URL; ?>/img/carousel_first.jpg"/>        <div class="carousel-caption">
             <p>Seulement sur notre site.</p>
          </div></div>
 
-    <div class="item"><img alt="" src="img/carousel_first.jpg"/>        <div class="carousel-caption">
+    <div class="item"><img alt="" src="<?php echo __SITE_URL; ?>/img/carousel_first.jpg"/>        <div class="carousel-caption">
             <p>A partir du 18 Juin au 31 Juin.</p>
          </div></div>
 
-    <div class="item"><img alt="" src="img/carousel_first.jpg"/>        <div class="carousel-caption">
+    <div class="item"><img alt="" src="<?php echo __SITE_URL; ?>/img/carousel_first.jpg"/>        <div class="carousel-caption">
             <p>Seulement pour vous.</p>
          </div>
     </div>

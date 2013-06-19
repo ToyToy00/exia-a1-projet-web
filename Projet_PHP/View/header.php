@@ -1,12 +1,12 @@
 <?php
 
-echo str_replace('C:\wamp\www\\','/',__SITE_PATH);
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="<?php echo str_replace('C:\wamp\www','',__SITE_PATH); ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo __SITE_URL; ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
         <!-- Le styles -->
         <style>
           body {
@@ -40,9 +40,9 @@ echo str_replace('C:\wamp\www\\','/',__SITE_PATH);
                     </li>
                       </ul>
 
-                        <div class="navbar-form pull-right">
+                        <form class="navbar-form pull-right" action="<?php echo __SITE_URL; ?>/authentification/login" method="POST" >
                         <?php echo $connect_nav; ?>
-                        </div>
+                        </form>
                     </div><!--/.nav-collapse -->
                      
                   </div>

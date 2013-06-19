@@ -57,11 +57,12 @@ class router {
             //$model = new db($this->controller . '.dao.php');
         } else {
             $this->file = $this->path . '/Controller/error.class.php';
-            $this->controller = 'error';
+            $this->controller = 'message';
             /*             * * include the controller ** */
             include $this->file;
             /*             * * a new controller class instance ** */
             $class = $this->controller . '_class';
+            $this->registry->template->message = '404 Not found';
             $controller = new $class($this->registry);
         }
 

@@ -10,15 +10,8 @@ class authentification_class extends router {
 
     function index() {
 
-        $this->registry->template->connect_nav = '<input type="text" class="txtbx_login" placeholder="Nom d\'utilisateur">
-                        <input type="password" class="txtbx_login" placeholder="Mot de Passe">
-                        <button type="submit" class="submit_login" class="btn">Se Connecter</button>';
-
         $this->registry->template->show('authentification');
 
-
-
-        var_dump($_POST);
     }
 
     function login() {
@@ -38,13 +31,16 @@ class authentification_class extends router {
                        // $_SESSION['admin'] = $_SESSION['user'];
                         echo "admin";
                     }
-                    echo "ok";
+                    $this->registry->template->message = "Yes";
                 } else {
-                    echo "Email ou mot de passe invalide";
+                    $this->registry->template->message = "Email ou mot de passe invalide";
                 }
             } else {
-                echo "Email ou mot de passe manquant";
+                $this->registry->template->message = "Email ou mot de passe manquant";
             }
+            $this->registry->template->show('message');
+        }else{
+        $this->registry->template->show('authentification');
         }
     }
     
@@ -71,16 +67,16 @@ class authentification_class extends router {
                 }
                 else 
                 {
-                    echo "Login deja use";
+                    $this->registry->template->message = "Login deja use";
                 }
             }
             else 
             {
-                echo "Champs non rempli";
+                $this->registry->template->message = "Champs non rempli";
             }
-        }
-        else {
-            echo "error";
+            $this->registry->template->show('message');
+        }else{
+        $this->registry->template->show('authentification');
         }
     }
 

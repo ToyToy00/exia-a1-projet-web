@@ -3,13 +3,16 @@
 class error_class extends router {
 
     private $error;
-
-    function __construct($error) {
-        $this->error = $error;
+    private $registry;
+    
+    function __construct($registry) {
+        //$this->error = $error;
+        $this->registry = $registry;
     }
     
     function index (){
-            include $this->path.'/View/error404.php';
+        
+        $this->registry->template->show('error');
         
     }
 
