@@ -8,7 +8,6 @@ echo str_replace('C:\wamp\www\\','/',__SITE_PATH);
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="<?php echo str_replace('C:\wamp\www','',__SITE_PATH); ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
         <!-- Le styles -->
-        <link href="../assets/css/bootstrap.css" rel="stylesheet">
         <style>
           body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */

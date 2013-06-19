@@ -2,17 +2,43 @@
 
 class authentification_pdo {
     
+
     function __construct()
     {
-        
+    
     }
     
-    public function select_all()
+    public function VerifAuthentification($email, $mdp)
     {
         $con = db::getInstance();
-        $req = "SELECT * FROM Articles";
+        $req = "SELECT Email,Mdp,Admin FROM client WHERE Email='" . $email . "' AND Mdp='" . $mdp . "'";
         $query = $con->query($req);
         return $query->fetch();
     }
+    
+    public function VerifInscription($email)
+    {
+        $con = db::getInstance($email);
+        $req = "SELECT Email FROM client WHERE Email = '" . $email . " '";
+        $query = $con->query($req);
+        return $query->fetch();
+    }
+    
+    public function InsertInscriptionClient($email, $mdp, $nom, $prenom)
+    {
+        $con = db::getInstance($email, $mdp, $nom, $prenom);
+        $req = "INSERT INTO client (Email, Mdp, Nom, Prenom) VALUES ('" . $email . "', '" . $mdp . "', '" . $nom . "', '" . $prenom . "')";
+        $exec = $con->exec($req);
+        return 1;
+        }
+    
+        public function InsertInscriptionAdresse($adresse, $ville, $cp)
+    {
+        $con = db::getInstance($adresse, $ville, $cp);
+        $req = "INSERT INTO adresses (Adresse, Ville, CP) VALUES ('" . $adresse . "', '" . $ville . "', " . $cp . ")";
+        $exec = $con->exec($req);
+        return 1;
+        }
+
 }
 ?>
