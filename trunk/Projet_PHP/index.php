@@ -26,12 +26,12 @@
                       <a class="brand" href="#"><span style="color:red;">E</span>xi<span style="color:red;">@</span>Store</a>
                     <div class="nav-collapse">
                       <ul class="nav">
-                        <li class="active"><a href="#">Accueil</a></li>
+                        <li class="active"><a href="index.php">Accueil</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catalogue <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">CD</a></li>
-                          <li><a href="#">DVD</a></li>
+                          <li><a href="catalogue_cd.php">CD</a></li>
+                          <li><a href="catalogue_dvd.php">DVD</a></li>
                           <li><a href="#">Recherche</a></li>
                         </ul>
                     </li>
@@ -41,6 +41,7 @@
                         <input type="text" class="txtbx_login" placeholder="Nom d'utilisateur">
                         <input type="password" class="txtbx_login" placeholder="Mot de Passe">
                         <button type="submit" class="submit_login" class="btn">Se Connecter</button>
+                        <button type="submit" class="submit_login" class="btn-small">Pas encore inscrit ?</span></button>
                         </div>
                     </div><!--/.nav-collapse -->
                      
@@ -86,7 +87,7 @@ Nullam sodales dignissim justo, ac ullamcorper velit posuere nec. Cras id dignis
 Arta laoreet odio, non fermentum quam iaculis sed. Duis ut eleifend nisi. Nulla euismod lobortis iaculis. Aenean sit amet pharetra nibh, at fringilla ipsum. Pellentesque euismod elit ac iaculis laoreet. Suspendisse eu vestibulum sapien. Pellentesque eu malesuada purus. Sed egestas lacus sit amet elementum pretium. Pellentesque lectus magna, tristique nec aliquet nec, malesuada id velit. Etiam vitae diam a tortor fringilla malesuada lobortis vitae tortor. Ut id ipsum sapien. Pellentesque consectetur interdum velit, vel tincidunt justo aliquam nec. Nam quis libero nec ipsum congue pretium. Nam sit amet dui purus. Nunc pulvinar turpis sagittis, faucibus lacus ac, ullamcorper arcu.
 Aliquam eu vehicula enim, eget consequat nibh. Suspendisse potenti. Nam in eros in quam rhoncus venenatis sed ut nisi. In hac habitasse platea dictumst. Maecenas quis consequat dui. Phasellus vel ipsum tincidunt, hendrerit erat accumsan, tempus felis. Nulla facilisi. Nam imperdiet semper enim, a convallis augue auctor non. Phasellus consectetur eros mi, malesuada viverra eros eleifend sit amet. Ut ornare auctor commodo. Nunc dictum luctus purus sit amet adipiscing. Pellentesque suscipit venenatis malesuada. Aliquam erat volutpat. Vivamus pellentesque ipsum non est aliquet vulputate. Sed posuere vel dolor non vulputate.</p>
                 </div>
-                                        <footer class="modal-footer">
+            <footer class="modal-footer">
                 <p>&copy; Copyright 2013 EXI@STORE Groupe: Clement Valentin Lucien</p>
             </footer>   
             </div>
@@ -100,7 +101,8 @@ Aliquam eu vehicula enim, eget consequat nibh. Suspendisse potenti. Nam in eros 
                         <li><a href="#">Link</a></li>
                             <li class="nav-header"> Panier   <i class="icon-shopping-cart"></i></li>
                         <div class="well">
-                            <div class="well blanc">
+                            <div class="well_blanc">
+                                <!-- <?php ?> -->
                                 <li><a href="#">Link</a></li>
                                 <li><a href="#">Link</a></li>
                                 <li><a href="#">Link</a></li>

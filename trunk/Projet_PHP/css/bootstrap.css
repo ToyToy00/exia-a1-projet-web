@@ -3121,11 +3121,11 @@ table th[class*="span"],
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-.well blanc{
+.well_blanc{
   min-height: 20px;
-  padding: 19px;
+  padding: 14px;
   margin-bottom: 20px;
-  background-color: white;
+  background-color:#fff;
   border: 1px solid #e3e3e3;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -5260,7 +5260,7 @@ input[type="submit"].btn.btn-mini {
 
 .modal-body {
   position: relative;
-  max-height: 650sipx;
+  max-height: 650px;
   padding: 15px;
   overflow-y: auto;
 }
@@ -6215,4 +6215,26 @@ a.badge:focus {
       -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
+}
+.article_catalogue {
+    height:175px;
+    width:150px;
+    display:inline-block;
+    text-align: center;
+}
+.img_catalogue {
+    height:100px;
+    width:100px;
+}
+prix_article {
+    padding-top:0px;
+}
+nom_article {
+    padding-bottom: 0px;
+}
+.btn_voir_article {
+        margin-left:35%;
+      -webkit-border-radius: 12px;
+     -moz-border-radius:12px;
+          border-radius: 12px;
 }
