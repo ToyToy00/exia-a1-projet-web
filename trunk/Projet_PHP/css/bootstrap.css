@@ -33,7 +33,7 @@
 
 .input-block-level {
   display: block;
-  width: 100%;
+  width: 90%;
   min-height: 30px;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -390,6 +390,7 @@ a:focus {
 
 .row-fluid {
   width: 100%;
+  min-height: 800px;
   *zoom: 1;
 }
 
@@ -6198,6 +6199,7 @@ a.badge:focus {
     top:40px;
     width:250px;
     right:0;
+    overflow-y: auto;
 }
 
 .row-fluid > .span-fixed-sidebar {
