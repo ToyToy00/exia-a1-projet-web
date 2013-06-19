@@ -1,5 +1,5 @@
 <?php
-class inscription_class extends router{
+class authentification_class extends router{
     
 protected $registry;
 

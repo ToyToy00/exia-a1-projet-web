@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="http://localhost/Projet_PHP/css/bootstrap.css" rel="stylesheet" type="text/css">
         <!-- Le styles -->
         <link href="../assets/css/bootstrap.css" rel="stylesheet">
         <style>

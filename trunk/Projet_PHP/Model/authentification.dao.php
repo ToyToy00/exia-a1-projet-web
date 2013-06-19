@@ -1,6 +1,6 @@
 <?php
 
-class inscription_pdo {
+class authentification_pdo {
     
     function __construct()
     {
