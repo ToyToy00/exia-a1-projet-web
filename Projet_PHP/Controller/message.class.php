@@ -1,6 +1,6 @@
 <?php
 
-class error_class extends router {
+class message_class extends router {
 
     private $error;
     private $registry;
@@ -12,7 +12,7 @@ class error_class extends router {
     
     function index (){
         
-        $this->registry->template->show('error');
+        $this->registry->template->show('message');
         
     }
 
