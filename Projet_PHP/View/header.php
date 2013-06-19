@@ -29,7 +29,7 @@
                       <a class="brand" href="<?php echo __SITE_URL; ?>/"><span style="color:red;">E</span>xi<span style="color:red;">@</span>Store</a>
                     <div class="nav-collapse">
                       <ul class="nav">
-                        <li class="active"><a href="index.php">Accueil</a></li>
+                        <li class="active"><a href="<?php echo __SITE_URL; ?>/">Accueil</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catalogue <b class="caret"></b></a>
                         <ul class="dropdown-menu">
