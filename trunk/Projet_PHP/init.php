@@ -56,7 +56,7 @@ class router {
             $this->registry->db->$pdo = new $pdo();
             //$model = new db($this->controller . '.dao.php');
         } else {
-            $this->file = $this->path . '/Controller/error.class.php';
+            $this->file = $this->path . '/Controller/message.class.php';
             $this->controller = 'message';
             /*             * * include the controller ** */
             include $this->file;
