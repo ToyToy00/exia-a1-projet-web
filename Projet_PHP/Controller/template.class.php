@@ -24,7 +24,7 @@ class template {
                         <input type="text" class="txtbx_login" placeholder="Nom d\'utilisateur" name="comail">
                         <input type="password" class="txtbx_login" placeholder="Mot de Passe" name="comdp">
                         <button type="submit" class="submit_login btn-primary btn_panier" class="btn">Se Connecter</button>
-                        <button class="submit_login btn-primary btn_panier" class="btn" onclick="location.href=\'' . __SITE_URL . '/authentification/\'">Pas encore Inscrit ?</button>
+                        <button type="button" class="submit_login btn-primary btn_panier" class="btn" onclick="location.href=\'' . __SITE_URL . '/authentification/\'">Pas encore Inscrit ?</button>
                         </form>';
         } else {
             $this->registry->template->connect_nav = '<div class="navbar-form pull-right">
