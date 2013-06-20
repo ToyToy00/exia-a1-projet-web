@@ -41,10 +41,10 @@
                       </ul>
 
                        
-                        <?php echo $connect_nav; ?>
+                        
                        
                     </div><!--/.nav-collapse -->
-                     
+                     <?php echo $connect_nav; ?>
                   </div>
                 </div>
        
