@@ -16,6 +16,7 @@ class router {
     public $file;
     public $controller;
     public $action;
+    public $id;
 
     function __construct($registry, $path) {
 
@@ -76,7 +77,7 @@ class router {
             $action = $this->action;
         }
         /*         * * run the action ** */
-        $controller->$action();
+        $controller->$action($this->id);
     }
 
     /**
@@ -103,6 +104,9 @@ class router {
             if (isset($parts[1])) {
                 $this->action = strtolower($parts[1]);
             }
+            if (isset($parts[2])) {
+                $this->id = strtolower($parts[2]);
+            }
         }
 
         if (empty($this->controller)) {
@@ -113,6 +117,12 @@ class router {
         if (empty($this->action)) {
             $this->action = 'index';
         }
+        
+        /*         * * Get id ** */
+        if (empty($this->action)) {
+            $this->id = '';
+        }
+       
 
         /*         * * set the file path ** */
         $this->file = $this->path . '\Controller\\' . $this->controller . '.class.php';
