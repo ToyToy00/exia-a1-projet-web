@@ -11,7 +11,7 @@ protected $registry;
     function index (){
       
             $this->registry->db->catalogue_pdo->select_all();
-            include $this->path.'/View/catalogue.php';
+            $this->registry->template->show('catalogue');
         
         
     }
