@@ -6,7 +6,7 @@
  */
 ?>
 <div class="span3">
-                <div class="sidebar-nav-fixed offset9">
+                <div class="sidebar-nav-fixed offset10">
                     <ul class="nav nav-list">
                         <li class="nav-header">Mon Compte</li>
                         <li><a href="#">Link</a></li>
@@ -30,7 +30,6 @@
                         <li><a href="#">Link</a></li>
                         <li><a href="#">Link</a></li>
                         <li class="nav-header">Partenaires</li>
-                        <li><a href="#">Link</a></li>
                         <li><a href="#">Link</a></li>
                         <li><a href="#">Link</a></li>
                     </ul>

@@ -7,7 +7,41 @@
 ?>
 <div class="span9">
                 <div class="modal-body">
-                    <div id="myCarousel" class="carousel slide">
+                  
+                    <div class="block_carousel_search">
+                        <div class="pull-right well">
+                    <form class="form-search">
+                        <div class="input-append">
+                            <input type="text" class="search-query" placeholder="Recherche">
+                            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>                       
+                        </div>
+                    </form>  
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label class="chck_cd checkbox">
+                                            <input type="checkbox" value="cd"/>
+                                            CD
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="chck_dvd checkbox">
+                                            <input type="checkbox" value="dvd"/>
+                                            DVD
+                                        </label>
+                                    </td>
+                                </tr>
+                             </table>
+                           <div class="dropdown_search  dropdown">
+                                <a class="dropdown-toggle" role="button"data-toggle="dropdown">Theme <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labbeledby="drop4">
+                                    <li role="presentation"><a href="<?php echo __SITE_URL; ?>/catalogue/cd">TROLO</a></li>
+                                    <li role="presentation"><a href="<?php echo __SITE_URL; ?>/catalogue/dvd">TROLO</a></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    <div id="myCarousel" class="carousel_catalogue carousel slide">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -33,6 +67,9 @@
   <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
+                
+                      
+    </div>
         <!-- BODY  -->
         <div class="well" >
             <div class="article_catalogue well_blanc">
