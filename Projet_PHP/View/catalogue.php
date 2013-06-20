@@ -4,6 +4,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
 ?>
 <div class="span9">
                 <div class="modal-body">
@@ -72,61 +73,17 @@
     </div>
         <!-- BODY  -->
         <div class="well" >
-            <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="<?php echo __SITE_URL; ?>/img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p class="nom_article"> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue" alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
-                        <div class="article_catalogue well_blanc">
-                <img class="img_catalogue"  alt="" src="img/catalogue/article1.jpg" href="#"/>
-                <p> Album Black Sabbath 13 (2013) <span style="color:red;">24 Euros</span></p>
-                                                <button href=""  name="btn_add_panier" class="btn_voir_article btn-primary">Voir</button>
-            </div>
+            <?php
+            foreach ($article_array as $key => $value) {
+                echo '<div class="article_catalogue well_blanc">
+                <img class="img_catalogue"  alt="" src="' . __SITE_URL . '/' . $value['img'] .'" href="#"/>
+                <p> ' . $value['Titre'] . ' - <span style="color:red;">' . $value['Prix'] . ' Euros</span></p>
+                <table style="width:100%"><tr><td><button name="btn_add_panier" class="btn_voir_article btn-primary" type="button" onclick="location.href=\'' . __SITE_URL . '/catalogue/article/' . $value['ID_Article'] . '\'">Voir</button></td><td><button href=""  name="btn_add_panier" class="btn_voir_article btn-primary" title="Panier" >+</button></td></tr></table>
+            </div>';
+            }
+            ?>
+            
+                
             
         </div>
                 </div>
