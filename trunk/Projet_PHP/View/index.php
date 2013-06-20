@@ -1,4 +1,4 @@
-<div class="span9">
+<div class="span10">
                 <div class="modal-body">
                     <div id="myCarousel" class="carousel slide">
   <ol class="carousel-indicators">
