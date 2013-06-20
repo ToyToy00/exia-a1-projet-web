@@ -32,10 +32,10 @@ class authentification_pdo {
         return 1;
         }
     
-        public function InsertInscriptionAdresse($adresse, $ville, $cp)
+        public function InsertInscriptionAdresse($email, $adresse, $ville, $cp)
     {
-        $con = db::getInstance($adresse, $ville, $cp);
-        $req = "INSERT INTO adresses (Adresse, Ville, CP) VALUES ('" . $adresse . "', '" . $ville . "', " . $cp . ")";
+        $con = db::getInstance($email, $adresse, $ville, $cp);
+        $req = "INSERT INTO adresses (ID_Client, Adresse, Ville, CP) VALUES ((SELECT ID_Client FROM client WHERE Email = '" . $email ."'),'" . $adresse . "', '" . $ville . "', " . $cp . ")";
         $exec = $con->exec($req);
         return 1;
         }

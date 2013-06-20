@@ -39,7 +39,7 @@ class authentification_class extends router {
                     $_SESSION['user']['user_info'] = $comail;
                     
                    
-                    if($resultat['Admin'] == true)
+                    if($resultat['Admin'] == 1)
                     {
                         $_SESSION['user']['user_admin'] = 1;
                        // $_SESSION['admin'] = $_SESSION['user'];
@@ -70,6 +70,7 @@ class authentification_class extends router {
             $Ville = ($_POST['Ville']);
             $CP = ($_POST['CP']);
             
+      
             if($Email != '' && $VerifEmail != '' && $Nom != '' && $Prenom != '' && $Mdp != '' && $VerifMdp != '' && $Adresse != '' && $Ville != '' && $CP != '')
             {
                 $resultat = $this->registry->db->authentification_pdo->VerifInscription($Email);
@@ -77,7 +78,7 @@ class authentification_class extends router {
                 if ($resultat === false)
                 {
                     $resultat = $this->registry->db->authentification_pdo->InsertInscriptionClient($Email, $Mdp, $Nom, $Prenom);
-                    $resultat2 = $this->registry->db->authentification_pdo->InsertInscriptionAdresse($Adresse, $Ville, $CP);
+                    $resultat2 = $this->registry->db->authentification_pdo->InsertInscriptionAdresse($Email, $Adresse, $Ville, $CP);
                     $this->registry->template->message = "Inscrit. Veuillez vous connecter";
                 }
                 else 
