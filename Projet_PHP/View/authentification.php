@@ -44,8 +44,8 @@
 <script>
     function valider() {
         // si la valeur du champ prenom est non vide
-        var myRegExp = new RegExp("^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$");
-        var myRegExpNomPrenom = new RegExp("^[a-zA-Z]{1,20}\\-[a-zA-Z]{1,20}$");
+        var myRegExp = new RegExp("^[a-z0-9._-]+@[a-z0-9._-]{2,15}\.[a-z]{2,4}$");
+        var myRegExpNomPrenom = new RegExp("^[a-zA-Z-àáâãäåçèéêëìíîïðòóôõöùúûüýÿ]{2,20}$");
         var myRegExpCP = new RegExp("^[0-9]{2,5}$");
 
         if (document.formInscription.Email.value !== "" && myRegExp.test(document.formInscription.Email.value) === true) {
@@ -63,13 +63,13 @@
             document.getElementById("VerifEmaili").className = "icon-remove";
         }
 
-        if (document.formInscription.Nom.value !== "" /*&& myRegExpNomPrenom.test(document.formInscription.Nom.value) === true*/) {
+        if (document.formInscription.Nom.value !== "" && myRegExpNomPrenom.test(document.formInscription.Nom.value) === true) {
             document.getElementById("Nomi").className = "icon-ok";
         }
         else {
             document.getElementById("Nomi").className = "icon-remove";
         }
-        if (document.formInscription.Prenom.value !== ""/* && myRegExpNomPrenom.test(document.formInscription.Prenom.value) === true*/) {
+        if (document.formInscription.Prenom.value !== "" && myRegExpNomPrenom.test(document.formInscription.Prenom.value) === true) {
             document.getElementById("Prenomi").className = "icon-ok";
         }
         else {
@@ -122,7 +122,7 @@
                     <td>
                         <form class="form-signin" action="login" method="POST" style="display:inline-block;vertical-align:center;">
                             <h2 class="form-signin-heading">Connexion</h2>
-                            <input type="text" class="input-block-level" placeholder="Email address" name="comail">
+                            <input type="text"  class="input-block-level" placeholder="Email address" name="comail">
                             <input type="password" class="input-block-level" placeholder="Password" name="comdp">
                             <label class="checkbox">
                                 <input type="checkbox" value="remember-me"> Remember me
@@ -134,25 +134,25 @@
                     <td>
                         <form class="form-signin" action="inscription" method="POST" name="formInscription" onsubmit="valider();" style="display:inline-block;">
                             <h2 class="form-signin-heading">Inscription</h2>
-                            <input type="text" class="input-block-level" onchange="valider();" placeholder="Adresse email" name="Email">     
+                            <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Adresse email" name="Email">     
                             <i class="icon-remove" style="" id="Emaili"> </i>
-                            <input type="text" class="input-block-level" onchange="valider();" placeholder="Verification email" name="VerifEmail">
+                            <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Verification email" name="VerifEmail">
                             <i class="icon-remove" id="VerifEmaili"> </i>
-                            <input type="text" class="input-block-level" onchange="valider();" placeholder="Nom" name="Nom">
+                            <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Nom" name="Nom">
                             <i class="icon-remove" id="Nomi" > </i>
-                            <input type="text" class="input-block-level" onchange="valider();" placeholder="Prenom" name="Prenom">
+                            <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Prenom" name="Prenom">
                             <i class="icon-remove" id="Prenomi" > </i>
-                            <input type="password"  class="input-block-level" onchange="valider();" placeholder="Password" name="Mdp">
+                            <input type="password" style="width: 90%;"  class="input-block-level" onchange="valider();" placeholder="Password" name="Mdp">
                             <i class="icon-remove" id="Mdpi" > </i>
-                            <input type="password"  class="input-block-level" onchange="valider();" placeholder="Verification Password" name="VerifMdp">
+                            <input type="password" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Verification Password" name="VerifMdp">
                             <i class="icon-remove" id="VerifMdpi"  > </i>
-                            <input type="text"  class="input-block-level" onchange="valider();" placeholder="Adresse" name="Adresse">
+                            <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Adresse" name="Adresse">
                             <i class="icon-remove" id="Adressei" > </i>
-                            <input type="text"   class="input-block-level" onchange="valider();" placeholder="Ville"name="Ville">
+                            <input type="text" style="width: 90%;"  class="input-block-level" onchange="valider();" placeholder="Ville"name="Ville">
                             <i class="icon-remove"  id="Villei" > </i>
-                            <input type="text"  class="input-block-level" onchange="valider();" placeholder="Code Postal" name="CP">
+                            <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Code Postal" name="CP">
                             <i class="icon-remove" id="CPi" > </i>
-                            <input type="text" class="input-block-level"  placeholder="Pays" value="FRANCE" disabled>
+                            <input type="text" style="width: 90%;" class="input-block-level"  placeholder="Pays" value="FRANCE" disabled>
                             <label class="checkbox">
                                 <input type="checkbox" value="remember-me"> Conditions générales
                             </label>

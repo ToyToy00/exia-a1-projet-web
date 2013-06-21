@@ -11,7 +11,6 @@ class membre_pdo {
     public function RemplirChamps()
     {
         $con = db::getInstance();
-        var_dump($_SESSION['user']);
         $req = "SELECT Email,Mdp,Nom,Prenom,Adresse,Ville,CP FROM client,adresses WHERE client.ID_Client = adresses.ID_Client AND client.Email='" . $_SESSION['user']['user_info'] . "'";
         $query = $con->query($req);
         return $query->fetch();
