@@ -15,6 +15,22 @@ class catalogue_pdo {
         return $query->fetchAll();
     }
     
+    public function types()
+    {
+        $con = db::getInstance();
+        $req = "SELECT * FROM Type";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
+    
+    public function themes()
+    {
+        $con = db::getInstance();
+        $req = "SELECT * FROM Themes";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
+    
     public function select_article($id)
     {
         $con = db::getInstance();
@@ -38,9 +54,15 @@ class catalogue_pdo {
         $query = $con->query($req);
         return $query->fetchAll();
     }
+    public function search($search_query,$critere,$theme,$type)
+    {
+        $con = db::getInstance();
+        $req = 'SELECT * FROM Articles WHERE ' . $critere .' LIKE \'%'. $search_query .'%\''. $theme . $type;
+   
+        $query = $con->query($req);
+        return $query->fetchAll();
+        
+    }
 }
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 ?>

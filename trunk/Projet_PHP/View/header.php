@@ -33,6 +33,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catalogue <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                          <li><a href="<?php echo __SITE_URL; ?>/catalogue/">TOUT</a></li>
                           <li><a href="<?php echo __SITE_URL; ?>/catalogue/cd">CD</a></li>
                           <li><a href="<?php echo __SITE_URL; ?>/catalogue/dvd">DVD</a></li>
                           <li><a href="#">Recherche</a></li>

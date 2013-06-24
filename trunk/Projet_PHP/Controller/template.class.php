@@ -26,6 +26,7 @@ class template {
                         <button type="submit" class="submit_login btn-primary btn_panier" class="btn">Se Connecter</button>
                         <button type="button" class="submit_login btn-primary btn_panier" class="btn" onclick="location.href=\'' . __SITE_URL . '/authentification/\'">Pas encore Inscrit ?</button>
                         </form>';
+            $this->registry->template->nb_article = "Veuillez vous connecter pour ajouter des";
             
         } else {
             $connect_nav = '<div class="navbar-form pull-right">
@@ -41,6 +42,7 @@ class template {
            $connect_nav .= '</p></div>';
           
            $this->registry->template->connect_nav = $connect_nav;
+           $this->registry->template->nb_article = count(@$_SESSION['user']['panier'])-1;
         }
         if (file_exists($path) == false) {
             throw new Exception('Template not found in ' . $path);
