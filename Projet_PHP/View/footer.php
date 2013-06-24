@@ -25,8 +25,8 @@
             <li><a href="#">Infos pratiques</a></li>
             <li><a href="#"></a></li>
             <li class="nav-header">Partenaires</li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            <li><a href="http://www.esl.eu/fr/"><img style="width:95%" alt="ESL" src="<?php echo __SITE_URL; ?>/img/partenaire/partenaire1.jpg"></a></li>
+            <li><a href="http://en.intelextrememasters.com/nyc-vs-shanghai/" ><img style="width:95%" alt="Intel Extreme Masters"src="<?php echo __SITE_URL; ?>/img/partenaire/partenaire2.jpg"></a></li>
         </ul>
     </div><!--/.well --> 
 </div><!-- /.span -->
