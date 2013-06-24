@@ -25,7 +25,7 @@
                     <td>' . $value['Type'] . '</td>
                     <td><span id="qte-'.$value['ID_Article'].'">' . $_SESSION['user']['panier'][$value['ID_Article']] . '</span> <i class="icon-plus-sign" title="Supprimer cet article" onclick="plusarticle(' . $value['ID_Article'] . ');"></i><i class="icon-minus-sign" onclick="minusarticle(' . $value['ID_Article'] . ');" title="Supprimer cet article" onclick="delpanier(' . $value['ID_Article'] . ');"></i></td>
                     <td>' . $value['Prix'] . ' </td>
-                    <td><button name="btn_add_panier" class="btn_voir_article btn-primary" title="Supprimer cet article" onclick="location.href=\'' . __SITE_URL . '/panier/commande/\'" >-</button>
+                    <td><button name="btn_add_panier" class="btn_voir_article btn-primary" title="Supprimer cet article" onclick="delpanier(' . $value['ID_Article'] . ');" >-</button>
                                    </tr>';
                                 }
                                 ?>
