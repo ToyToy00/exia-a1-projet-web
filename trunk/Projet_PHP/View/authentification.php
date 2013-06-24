@@ -1,9 +1,5 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 ?>
 <!DOCTYPE html>
 <style type="text/css">
@@ -127,7 +123,7 @@
                            Mot de passe
                            <input type="password" class="input-block-level" placeholder="Password" name="comdp">
                             <label class="checkbox">
-                                <input type="checkbox" value="remember-me"> Remember me
+                                <input type="checkbox" name="remember" value="remember-me"> Remember me
                             </label>
                             <button class="btn btn-large btn-primary" type="submit">Connexion</button>
                         </form>
