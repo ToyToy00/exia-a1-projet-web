@@ -1,10 +1,10 @@
-<body>
+
     <style>
         .input-block-level {
             width: 300px;
         }
     </style>
-    <div class="row-fluid">
+    
         <div class="span9">
 
 
@@ -36,9 +36,9 @@
                                     <br />
                                     Saisir une autre adresse (laisser vide sinon): <br />
 
-                                    <input type="text"  class="input-block-level" onchange="valider();" placeholder="Adresse" name="Adresse"><br />
-                                    <input type="text"   class="input-block-level" onchange="valider();" placeholder="Ville"name="Ville"><br />
-                                    <input type="text"  class="input-block-level" onchange="valider();" placeholder="Code Postal" name="CP"><br />
+                                    <input type="text"  class="input-block-level" placeholder="Adresse" name="Adresse"><br />
+                                    <input type="text"   class="input-block-level" placeholder="Ville" name="Ville"><br />
+                                    <input type="text"  class="input-block-level" placeholder="Code Postal" name="CP"><br />
                                     
                                 </div> <!-- /container -->
                             </td>

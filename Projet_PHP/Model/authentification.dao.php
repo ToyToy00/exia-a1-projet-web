@@ -11,7 +11,7 @@ class authentification_pdo {
     public function VerifAuthentification($email, $mdp)
     {
         $con = db::getInstance();
-        $req = "SELECT Email,Mdp,Admin FROM client WHERE Email='" . $email . "' AND Mdp='" . $mdp . "'";
+        $req = "SELECT ID_Client,Email,Mdp,Admin FROM client WHERE Email='" . $email . "' AND Mdp='" . $mdp . "'";
         $query = $con->query($req);
         return $query->fetch();
     }
