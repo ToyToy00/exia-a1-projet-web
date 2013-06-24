@@ -22,16 +22,16 @@ class administration_class extends router {
             $this->registry->template->seuil = '';
             $this->registry->template->stock = '';
             $this->registry->template->statut = '';
-            
-            
+
+
             $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
             $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
             $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
             $this->registry->template->ttype = $reponse;
             $this->registry->template->Titre = $reponse2;
             $this->registry->template->TTitre = $reponse3;
-            
-            
+
+
 
 
             $this->registry->template->show('administration');
@@ -64,56 +64,56 @@ class administration_class extends router {
             $Stock = ($_POST['Stock']);
             $Statut = ($_POST['Statut']);
 
-            if ($Theme != '' && $Image != '' && $Prix != '' && $Type != '' && $Titre != '' && $Date_Edition != '' && $Description != '' && $Editeur != '' && $Seuil != '' && $Stock != '' && $Statut != '') {
+            if ($Theme != '' && $Image != '' && $Prix != '' && $Type != '' && $Titre != '' && $Date_Edition != '' && $Description != '' && $Editeur != '' && $Seuil != '' && $Stock != '' && $Statut != '' && is_numeric($Prix) && is_numeric($Seuil) && is_numeric($Stock)) {
 
                 $resultat = $this->registry->db->administration_pdo->InsertAjoutArticle($Theme, $Image, $Prix, $Type, $Titre, $Date_Edition, $Description, $Editeur, $Seuil, $Stock, $Statut);
-               
+
                 $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
                 $this->registry->template->type = $reponse;
                 echo "<script> alert('Succès') </script>";
-            $this->registry->template->id_article = '';
-            $this->registry->template->theme = '';
-            $this->registry->template->img = '';
-            $this->registry->template->prix = '';
-            $this->registry->template->type = '';
-            $this->registry->template->titre = '';
-            $this->registry->template->date_edition = '';
-            $this->registry->template->description = '';
-            $this->registry->template->editeur = '';
-            $this->registry->template->seuil = '';
-            $this->registry->template->stock = '';
-            $this->registry->template->statut = '';
-            
-            
-            $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
-            $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $this->registry->template->ttype = $reponse;
-            $this->registry->template->Titre = $reponse2;
-            $this->registry->template->TTitre = $reponse3;
+                $this->registry->template->id_article = '';
+                $this->registry->template->theme = '';
+                $this->registry->template->img = '';
+                $this->registry->template->prix = '';
+                $this->registry->template->type = '';
+                $this->registry->template->titre = '';
+                $this->registry->template->date_edition = '';
+                $this->registry->template->description = '';
+                $this->registry->template->editeur = '';
+                $this->registry->template->seuil = '';
+                $this->registry->template->stock = '';
+                $this->registry->template->statut = '';
+
+
+                $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
+                $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $this->registry->template->ttype = $reponse;
+                $this->registry->template->Titre = $reponse2;
+                $this->registry->template->TTitre = $reponse3;
                 $this->registry->template->show('administration');
             } else {
                 echo "<script> alert('Champs non remplis') </script>";
-               $this->registry->template->id_article = '';
-            $this->registry->template->theme = '';
-            $this->registry->template->img = '';
-            $this->registry->template->prix = '';
-            $this->registry->template->type = '';
-            $this->registry->template->titre = '';
-            $this->registry->template->date_edition = '';
-            $this->registry->template->description = '';
-            $this->registry->template->editeur = '';
-            $this->registry->template->seuil = '';
-            $this->registry->template->stock = '';
-            $this->registry->template->statut = '';
-            
-            
-            $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
-            $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $this->registry->template->ttype = $reponse;
-            $this->registry->template->Titre = $reponse2;
-            $this->registry->template->TTitre = $reponse3;
+                $this->registry->template->id_article = '';
+                $this->registry->template->theme = '';
+                $this->registry->template->img = '';
+                $this->registry->template->prix = '';
+                $this->registry->template->type = '';
+                $this->registry->template->titre = '';
+                $this->registry->template->date_edition = '';
+                $this->registry->template->description = '';
+                $this->registry->template->editeur = '';
+                $this->registry->template->seuil = '';
+                $this->registry->template->stock = '';
+                $this->registry->template->statut = '';
+
+
+                $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
+                $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $this->registry->template->ttype = $reponse;
+                $this->registry->template->Titre = $reponse2;
+                $this->registry->template->TTitre = $reponse3;
                 $this->registry->template->show('administration');
             }
         } else {
@@ -154,7 +154,8 @@ class administration_class extends router {
             $this->registry->template->show('message');
         }
     }
- function modifierarticle() {
+
+    function modifierarticle() {
         if (isset($_SESSION['user']['user_admin'])) {
             $id_article = ($_POST['ID_Article']);
             $theme = ($_POST['Theme']);
@@ -169,33 +170,66 @@ class administration_class extends router {
             $stock = ($_POST['Stock']);
             $statut = ($_POST['Statut']);
 
-            if ($theme != '' && $image != '' && $prix != '' && $type != '' && $titre != '' && $date_edition != '' && $description != '' && $editeur != '' && $seuil != '' && $stock != '' && $statut != '') {
-                $resultat = $this->registry->db->administration_pdo->UpdateArticle($id_article,$theme,$image, $prix,$type, $titre , $date_edition, $description, $editeur, $seuil, $stock, $statut);
-                
-            } else {
-                echo "<script> alert('Champs non remplis') </script>";
+            if ($theme != '' && $image != '' && $prix != '' && $type != '' && $titre != '' && $date_edition != '' && $description != '' && $editeur != '' && $seuil != '' && $stock != '' && $statut != '' && is_numeric($prix) && is_numeric($seuil) && is_numeric($stock)) {
+                $resultat = $this->registry->db->administration_pdo->UpdateArticle($id_article, $theme, $image, $prix, $type, $titre, $date_edition, $description, $editeur, $seuil, $stock, $statut);
+                echo "<script> alert('Succès') </script>";
                 $this->registry->template->id_article = '';
-            $this->registry->template->theme = '';
-            $this->registry->template->img = '';
-            $this->registry->template->prix = '';
-            $this->registry->template->type = '';
-            $this->registry->template->titre = '';
-            $this->registry->template->date_edition = '';
-            $this->registry->template->description = '';
-            $this->registry->template->editeur = '';
-            $this->registry->template->seuil = '';
-            $this->registry->template->stock = '';
-            $this->registry->template->statut = '';
-            
-            
-            $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
-            $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $this->registry->template->ttype = $reponse;
-            $this->registry->template->Titre = $reponse2;
-            $this->registry->template->TTitre = $reponse3;
+                $this->registry->template->theme = '';
+                $this->registry->template->img = '';
+                $this->registry->template->prix = '';
+                $this->registry->template->type = '';
+                $this->registry->template->titre = '';
+                $this->registry->template->date_edition = '';
+                $this->registry->template->description = '';
+                $this->registry->template->editeur = '';
+                $this->registry->template->seuil = '';
+                $this->registry->template->stock = '';
+                $this->registry->template->statut = '';
+
+
+                $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
+                $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $this->registry->template->ttype = $reponse;
+                $this->registry->template->Titre = $reponse2;
+                $this->registry->template->TTitre = $reponse3;
+                $this->registry->template->show('administration');
+            } else {
+                echo "<script> alert('Champs non remplis ou mal renseigné') </script>";
+                $this->registry->template->id_article = '';
+                $this->registry->template->theme = '';
+                $this->registry->template->img = '';
+                $this->registry->template->prix = '';
+                $this->registry->template->type = '';
+                $this->registry->template->titre = '';
+                $this->registry->template->date_edition = '';
+                $this->registry->template->description = '';
+                $this->registry->template->editeur = '';
+                $this->registry->template->seuil = '';
+                $this->registry->template->stock = '';
+                $this->registry->template->statut = '';
+
+
+                $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
+                $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $this->registry->template->ttype = $reponse;
+                $this->registry->template->Titre = $reponse2;
+                $this->registry->template->TTitre = $reponse3;
                 $this->registry->template->show('administration');
             }
+        } else {
+            $this->registry->template->show('administration');
+        }
+    }
+
+    function supprimerarticle() {
+        if (isset($_SESSION['user']['user_admin'])) {
+
+            $id_article = ($_POST['ID_Article2']);
+
+            $resultat = $this->registry->db->administration_pdo->SupprimerArticle($id_article);
+
             echo "<script> alert('Succès') </script>";
             $this->registry->template->id_article = '';
             $this->registry->template->theme = '';
@@ -209,51 +243,15 @@ class administration_class extends router {
             $this->registry->template->seuil = '';
             $this->registry->template->stock = '';
             $this->registry->template->statut = '';
-            
-            
-            $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
-            $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $this->registry->template->ttype = $reponse;
-            $this->registry->template->Titre = $reponse2;
-            $this->registry->template->TTitre = $reponse3;
-            $this->registry->template->show('administration');
-        } else {
-            $this->registry->template->show('administration');
-        }
-    }
-    
-    function supprimerarticle() {
-        if (isset($_SESSION['user']['user_admin'])) {
-         
-                $id_article = ($_POST['ID_Article2']);
-           
-                $resultat = $this->registry->db->administration_pdo->SupprimerArticle($id_article);
-             
-                echo "<script> alert('Succès') </script>";
-                $this->registry->template->id_article = '';
-            $this->registry->template->theme = '';
-            $this->registry->template->img = '';
-            $this->registry->template->prix = '';
-            $this->registry->template->type = '';
-            $this->registry->template->titre = '';
-            $this->registry->template->date_edition = '';
-            $this->registry->template->description = '';
-            $this->registry->template->editeur = '';
-            $this->registry->template->seuil = '';
-            $this->registry->template->stock = '';
-            $this->registry->template->statut = '';
-            
-            
-            $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
-            $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
-            $this->registry->template->ttype = $reponse;
-            $this->registry->template->Titre = $reponse2;
-            $this->registry->template->TTitre = $reponse3;
-                $this->registry->template->show('administration');
-           
 
+
+            $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
+            $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+            $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+            $this->registry->template->ttype = $reponse;
+            $this->registry->template->Titre = $reponse2;
+            $this->registry->template->TTitre = $reponse3;
+            $this->registry->template->show('administration');
         }
     }
 

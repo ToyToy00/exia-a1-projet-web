@@ -45,9 +45,9 @@
         // si la valeur du champ prenom est non vide
         var myRegExp = new RegExp("^[a-z0-9._-]+@[a-z0-9._-]{2,15}\.[a-z]{2,4}$");
         var myRegExpNomPrenom = new RegExp("^[a-zA-Z-àáâãäåçèéêëìíîïðòóôõöùúûüýÿ]{2,20}$");
-        var myRegExpCP = new RegExp("^[0-9]{2,5}$");
+        var myRegExpCP = new RegExp("^[0-9]{5,5}$");
 
-        if (document.formMembre.Email.value !== "" && myRegExp.test(document.formMembre.Email.value) === true) {
+        if (document.formMembreMail.Email.value !== "" && myRegExp.test(document.formMembreMail.Email.value) === true) {
             // alors on envoie le formulaire
             document.getElementById("Emaili").className = "icon-ok";
         }
@@ -55,54 +55,54 @@
             // sinon on affiche un message
             document.getElementById("Emaili").className = "icon-remove";
         }
-        if (document.formMembre.VerifEmail.value === document.formMembre.Email.value && document.formMembre.Email.value !== "") {
+        if (document.formMembreMail.VerifEmail.value === document.formMembreMail.Email.value && document.formMembreMail.Email.value !== "") {
             document.getElementById("VerifEmaili").className = "icon-ok";
         }
         else {
             document.getElementById("VerifEmaili").className = "icon-remove";
         }
 
-        if (document.formMembre.Nom.value !== "" && myRegExpNomPrenom.test(document.formMembre.Nom.value) === true) {
+        if (document.formMembreMail.Nom.value !== "" && myRegExpNomPrenom.test(document.formMembreMail.Nom.value) === true) {
             document.getElementById("Nomi").className = "icon-ok";
         }
         else {
             document.getElementById("Nomi").className = "icon-remove";
         }
-        if (document.formMembre.Prenom.value !== "" && myRegExpNomPrenom.test(document.formInscription.Prenom.value) === true) {
+        if (document.formMembreMail.Prenom.value !== "" && myRegExpNomPrenom.test(document.formMembreMail.Prenom.value) === true) {
             document.getElementById("Prenomi").className = "icon-ok";
         }
         else {
             document.getElementById("Prenomi").className = "icon-remove";
         }
 
-        if (document.formMembre.Mdp.value !== "") {
+        if (document.formMembreMail.Mdp.value !== "") {
             document.getElementById("Mdpi").className = "icon-ok";
         }
         else {
             document.getElementById("Mdpi").className = "icon-remove";
         }
 
-        if (document.formMembre.VerifMdp.value === document.formMembre.Mdp.value && document.formMembre.VerifMdp.value !== "") {
+        if (document.formMembreMail.VerifMdp.value === document.formMembreMail.Mdp.value && document.formMembreMail.VerifMdp.value !== "") {
             document.getElementById("VerifMdpi").className = "icon-ok";
         }
         else {
             document.getElementById("VerifMdpi").className = "icon-remove";
         }
 
-        if (document.formMembre.Adresse.value !== "") {
+        if (document.formMembreAdresse.Adresse.value !== "") {
             document.getElementById("Adressei").className = "icon-ok";
         }
         else {
             document.getElementById("Adressei").className = "icon-remove";
         }
 
-        if (document.formMembre.Ville.value !== "") {
+        if (document.formMembreAdresse.Ville.value !== "") {
             document.getElementById("Villei").className = "icon-ok";
         }
         else {
             document.getElementById("Villei").className = "icon-remove";
         }
-        if (document.formMembre.CP.value !== "" && myRegExpCP.test(document.formMembre.CP.value) === true) {
+        if (document.formMembreAdresse.CP.value !== "" && myRegExpCP.test(document.formMembreAdresse.CP.value) === true) {
             document.getElementById("CPi").className = "icon-ok";
         }
         else {
@@ -121,7 +121,7 @@
                     <td> </td>
                     <td>
                         
-                        <form class="form-signin" action="modificationClient" method="POST" name="formMembre" onsubmit="valider();" style="display:inline-block;">
+                        <form class="form-signin" action="modificationClient" method="POST" name="formMembreMail" onsubmit="valider();" style="display:inline-block;">
                             <h2 class="form-signin-heading">Mes infos</h2>
                             Adresse email
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Adresse email" name="Email" value="<?php echo $_SESSION['user']['Email']?>">     
@@ -147,7 +147,7 @@
                         
                     </td>
                     <td>
-                        <form class="form-signin" action="modificationAdresse" method="POST" name="formMembre" onsubmit="valider();" style="display:inline-block;">
+                        <form class="form-signin" action="modificationAdresse" method="POST" name="formMembreAdresse" onsubmit="valider();" style="display:inline-block;">
                             <h2 class="form-signin-heading">Mes infos</h2>
                             Adresse
                             <input type="text" style="width: 90%;"  class="input-block-level" onchange="valider();" placeholder="Adresse" name="Adresse" value="<?php echo $_SESSION['user']['Adresse']?>">
