@@ -43,8 +43,8 @@
 <script>
     function valider() {
         // si la valeur du champ prenom est non vide
-        var myRegExp = new RegExp("^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$");
-        var myRegExpNomPrenom = new RegExp("^[a-zA-Z]{1,20}\\-[a-zA-Z]{1,20}$");
+        var myRegExp = new RegExp("^[a-z0-9._-]+@[a-z0-9._-]{2,15}\.[a-z]{2,4}$");
+        var myRegExpNomPrenom = new RegExp("^[a-zA-Z-àáâãäåçèéêëìíîïðòóôõöùúûüýÿ]{2,20}$");
         var myRegExpCP = new RegExp("^[0-9]{2,5}$");
 
         if (document.formMembre.Email.value !== "" && myRegExp.test(document.formMembre.Email.value) === true) {
@@ -62,13 +62,13 @@
             document.getElementById("VerifEmaili").className = "icon-remove";
         }
 
-        if (document.formMembre.Nom.value !== "" /*&& myRegExpNomPrenom.test(document.formMembre.Nom.value) === true*/) {
+        if (document.formMembre.Nom.value !== "" && myRegExpNomPrenom.test(document.formMembre.Nom.value) === true) {
             document.getElementById("Nomi").className = "icon-ok";
         }
         else {
             document.getElementById("Nomi").className = "icon-remove";
         }
-        if (document.formMembre.Prenom.value !== ""/* && myRegExpNomPrenom.test(document.formInscription.Prenom.value) === true*/) {
+        if (document.formMembre.Prenom.value !== "" && myRegExpNomPrenom.test(document.formInscription.Prenom.value) === true) {
             document.getElementById("Prenomi").className = "icon-ok";
         }
         else {
@@ -123,16 +123,22 @@
                         
                         <form class="form-signin" action="modificationClient" method="POST" name="formMembre" onsubmit="valider();" style="display:inline-block;">
                             <h2 class="form-signin-heading">Mes infos</h2>
+                            Adresse email
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Adresse email" name="Email" value="<?php echo $_SESSION['user']['Email']?>">     
                             <i class="icon-remove" style="" id="Emaili"> </i>
+                            Vérification adresse email
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Verification email" name="VerifEmail" value="<?php echo $_SESSION['user']['Email']?>">
                             <i class="icon-remove" id="VerifEmaili"> </i>
+                            Nom
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Nom" name="Nom" value="<?php echo $_SESSION['user']['Nom']?>">
                             <i class="icon-remove" id="Nomi" > </i>
+                            Prénom
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Prenom" name="Prenom" value="<?php echo $_SESSION['user']['Prenom']?>">
                             <i class="icon-remove" id="Prenomi" > </i>
+                            Mot de passe
                             <input type="password" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Password" name="Mdp" value="<?php echo $_SESSION['user']['Mdp']?>">
                             <i class="icon-remove" id="Mdpi" > </i>
+                            Vérification mot de passe
                             <input type="password" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Verification Password" name="VerifMdp" value="<?php echo $_SESSION['user']['Mdp']?>">
                             <i class="icon-remove" id="VerifMdpi"  > </i>
                             <p></p>
@@ -143,13 +149,16 @@
                     <td>
                         <form class="form-signin" action="modificationAdresse" method="POST" name="formMembre" onsubmit="valider();" style="display:inline-block;">
                             <h2 class="form-signin-heading">Mes infos</h2>
-                            
+                            Adresse
                             <input type="text" style="width: 90%;"  class="input-block-level" onchange="valider();" placeholder="Adresse" name="Adresse" value="<?php echo $_SESSION['user']['Adresse']?>">
                             <i class="icon-remove" id="Adressei" > </i>
+                            Ville
                             <input type="text" style="width: 90%;"  class="input-block-level" onchange="valider();" placeholder="Ville"name="Ville" value="<?php echo $_SESSION['user']['Ville']?>">
                             <i class="icon-remove"  id="Villei" > </i>
+                            Code Postal
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Code Postal" name="CP" value="<?php echo $_SESSION['user']['CP']?>">
                             <i class="icon-remove" id="CPi" > </i>
+                            Pays
                             <input type="text" style="width: 90%;" class="input-block-level"  placeholder="Pays" value="FRANCE" disabled>
                             
                             <button class="btn btn-large btn-primary" type="submit" >Modifier</button>

@@ -122,8 +122,10 @@
                     <td>
                         <form class="form-signin" action="login" method="POST" style="display:inline-block;vertical-align:center;">
                             <h2 class="form-signin-heading">Connexion</h2>
-                            <input type="text"  class="input-block-level" placeholder="Email address" name="comail">
-                            <input type="password" class="input-block-level" placeholder="Password" name="comdp">
+                           Adresse Email
+                           <input type="text" style="" class="input-block-level" placeholder="Adresse email" name="comail"> 
+                           Mot de passe
+                           <input type="password" class="input-block-level" placeholder="Password" name="comdp">
                             <label class="checkbox">
                                 <input type="checkbox" value="remember-me"> Remember me
                             </label>
@@ -134,24 +136,34 @@
                     <td>
                         <form class="form-signin" action="inscription" method="POST" name="formInscription" onsubmit="valider();" style="display:inline-block;">
                             <h2 class="form-signin-heading">Inscription</h2>
+                            Adresse email
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Adresse email" name="Email">     
                             <i class="icon-remove" style="" id="Emaili"> </i>
+                            Verification adresse email
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Verification email" name="VerifEmail">
                             <i class="icon-remove" id="VerifEmaili"> </i>
+                            Nom
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Nom" name="Nom">
                             <i class="icon-remove" id="Nomi" > </i>
+                            Prénom
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Prenom" name="Prenom">
                             <i class="icon-remove" id="Prenomi" > </i>
+                            Mot de passe
                             <input type="password" style="width: 90%;"  class="input-block-level" onchange="valider();" placeholder="Password" name="Mdp">
                             <i class="icon-remove" id="Mdpi" > </i>
+                            Vérification mot de passe
                             <input type="password" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Verification Password" name="VerifMdp">
                             <i class="icon-remove" id="VerifMdpi"  > </i>
+                            Adresse
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Adresse" name="Adresse">
                             <i class="icon-remove" id="Adressei" > </i>
+                            Ville
                             <input type="text" style="width: 90%;"  class="input-block-level" onchange="valider();" placeholder="Ville"name="Ville">
                             <i class="icon-remove"  id="Villei" > </i>
+                            Code Postal
                             <input type="text" style="width: 90%;" class="input-block-level" onchange="valider();" placeholder="Code Postal" name="CP">
                             <i class="icon-remove" id="CPi" > </i>
+                            Pays
                             <input type="text" style="width: 90%;" class="input-block-level"  placeholder="Pays" value="FRANCE" disabled>
                             <label class="checkbox">
                                 <input type="checkbox" value="remember-me"> Conditions générales

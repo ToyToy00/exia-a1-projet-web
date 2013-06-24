@@ -69,7 +69,7 @@ class router {
 
 
 
-
+        
         /*         * * check if the action is callable ** */
         if (is_callable(array($controller, $this->action)) == false) {
             $action = 'index';
@@ -77,6 +77,7 @@ class router {
             $action = $this->action;
         }
         /*         * * run the action ** */
+       
         $controller->$action($this->id);
     }
 
@@ -122,7 +123,7 @@ class router {
         if (empty($this->action)) {
             $this->id = '';
         }
-       
+      
 
         /*         * * set the file path ** */
         $this->file = $this->path . '\Controller\\' . $this->controller . '.class.php';
