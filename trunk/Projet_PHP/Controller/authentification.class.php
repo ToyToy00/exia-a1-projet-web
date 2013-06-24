@@ -37,6 +37,7 @@ class authentification_class extends router {
                 if ($resultat != '') {
                     $_SESSION['user'] = array();
                     $_SESSION['user']['user_info'] = $comail;
+                    $_SESSION['user']['user_id'] = $resultat['ID_Client'];
                     
                    
                     if($resultat['Admin'] == 1)

@@ -51,6 +51,6 @@
        
               </div>        
     </nav>
-        <body>
+        <body id='body'>
         <div class="row-fluid">
         

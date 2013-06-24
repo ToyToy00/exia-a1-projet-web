@@ -1,12 +1,11 @@
-<body>
-    <div class="row-fluid">
-        <div class="span9">
-            <div class="pull-center well">
 
-                <div class="modal-body">
+        <div class="span9">
+            <div class="well" >
+
+                <div class="modal-body" >
 
                     <center>
-                        <table class='table'>
+                        <table class='table' id="table_panier" style="width:100%;">
                             <thead>
                                 <tr>
                                     <td>Titre</td>
@@ -27,11 +26,15 @@
                     <td>' . $value['Prix'] . ' </td>
                     <td><button name="btn_add_panier" class="btn_voir_article btn-primary" title="Supprimer cet article" onclick="delpanier(' . $value['ID_Article'] . ');" >-</button>
                                    </tr>';
+                                   
                                 }
+                                
+                                echo '<tr><td colspan=4>TOTAL</td><td>'.$total.'€</td></tr>';
                                 ?>
                             </tbody>
+                            <?php echo $submit_form; ?>
                         </table>
-                        <?php echo $submit_form; ?>
+                        
                         
                     </center>
 
@@ -56,6 +59,9 @@ function plusarticle(id_)
             alert("planté");
         }
     });
+    
+        $("#body").load("panier/index");
+
     }
     function minusarticle(id_)
 {
@@ -67,11 +73,17 @@ function plusarticle(id_)
         },
         success: function(data) {
                         document.getElementById('qte-'+id_).innerHTML = parseInt(document.getElementById('qte-'+id_).innerHTML)-1;
+                if(parseInt(document.getElementById('qte-'+id_).innerHTML) === 0)
+                {
+                    delpanier(id_);
+                    
+                }
 },
         error: function() {
             alert("planté");
         }
     });
+    $("#body").load("panier/index");
     }
     function delpanier(id_)
 {
@@ -84,6 +96,8 @@ function plusarticle(id_)
         success: function(data) {
             document.getElementById(id_).innerHTML = '';
             document.getElementById('nb_article').innerHTML = document.getElementById('nb_article').innerHTML - 1;
+            
+            
         },
         error: function() {
             alert("planté");
