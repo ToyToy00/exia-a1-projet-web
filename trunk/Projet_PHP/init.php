@@ -69,7 +69,7 @@ class router {
 
 
 
-        
+
         /*         * * check if the action is callable ** */
         if (is_callable(array($controller, $this->action)) == false) {
             $action = 'index';
@@ -77,8 +77,25 @@ class router {
             $action = $this->action;
         }
         /*         * * run the action ** */
-       
-        $controller->$action($this->id);
+
+        if ($this->controller == "panier" || $this->controller == "membre" || $this->controller == "commande") {
+            if (isset($_SESSION['user'])) {
+                $controller->$action($this->id);
+            } else {
+                $this->file = $this->path . '/Controller/message.class.php';
+                $this->controller = 'message';
+                /*                 * * include the controller ** */
+                include $this->file;
+                /*                 * * a new controller class instance ** */
+                $class = $this->controller . '_class';
+                $this->registry->template->message = 'Connectez vous';
+                $controller = new $class($this->registry);
+                $action = 'index';
+                $controller->$action($this->id);
+            }
+        } else {
+            $controller->$action($this->id);
+        }
     }
 
     /**
@@ -118,12 +135,12 @@ class router {
         if (empty($this->action)) {
             $this->action = 'index';
         }
-        
+
         /*         * * Get id ** */
         if (empty($this->action)) {
             $this->id = '';
         }
-      
+
 
         /*         * * set the file path ** */
         $this->file = $this->path . '\Controller\\' . $this->controller . '.class.php';
