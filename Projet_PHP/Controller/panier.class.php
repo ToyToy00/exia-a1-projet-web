@@ -59,7 +59,7 @@ class panier_class extends router {
             $cp = intval($_POST['CP']);
 
             //vérifier que les champs pour la carte bleu ne sont pas vide
-            if (is_numeric($num_carte) && is_numeric($crypto) && is_numeric($mois) && is_numeric($annee)) {
+            if (is_numeric($num_carte) && is_numeric($crypto) && is_numeric($mois) && is_numeric($annee) && strlen($num_carte) == 10) {
 
                 //enregistrer la commande
                 $id_commande = $this->registry->db->panier_pdo->add_commande($_SESSION['user']['user_id']);
