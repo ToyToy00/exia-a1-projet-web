@@ -12,7 +12,7 @@
                                   </div>
                                       
                                       
-                                      <p><?php echo $article['Description']; ?></p>
+                                      <p><?php echo utf8_encode($article['Description']); ?></p>
                                       
                                       <p>Pour seulement <span style="color:red"><?php echo $article['Prix']; ?>E</span></p>
                                     

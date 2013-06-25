@@ -6,7 +6,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, width=device-width">
         <link href="<?php echo __SITE_URL; ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo __SITE_URL; ?>/css/bootstrap-responsive.css" rel="stylesheet">
         <!-- Le styles -->
         <style>
           body {
@@ -15,6 +17,7 @@
         </style>
         <title></title>
     </head>
+
     <nav>
         <!-- La barre de navigation -->
            <div class="navbar navbar-fixed-top">

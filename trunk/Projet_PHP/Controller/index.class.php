@@ -13,6 +13,9 @@ class index_class extends router {
         $this->registry->template->show('index');
         
     }
+    function plan_site() {
+        $this->registry->template->show('plan_site');
+    }
 
 }
 ?>
