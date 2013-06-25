@@ -30,15 +30,33 @@ class membre_class extends router {
     {
         if (isset($_SESSION['user'])) {
             
-            $commandes = $this->registry->db->membre_pdo->List_commande();
-            $this->registry->template->list_commandes = $commandes;
             
+           
             if($ID_Commande != NULL)
             {
                 $detail_commandes = $this->registry->db->membre_pdo->Detail_commande($ID_Commande);
-                $this->registry->template->detail_commandes = $detail_commandes;
+             
+                $bouyou = '';
+                foreach ($detail_commandes as $key => $value) {
+                         $bouyou = $bouyou.'<tr><td>'.$value['Titre'].'</td><td>'.$value['Prix'].'</td><td><a href="'. __SITE_URL .'/membre/commande/'.$value['ID_Commande'].'" title="voir detail" data-toggle="modal" data-target="#modal" class="LienModal" rel="1">Detail</a></td></tr>';
+                         
+                     }
+                     $this->registry->template->commandes = $bouyou;
+                     $this->registry->template->showu('facture');
+                
+            }else{
+                $commandes = $this->registry->db->membre_pdo->List_commande();
+                $bouyou = '';
+                foreach ($commandes as $key => $value) {
+                         $bouyou = $bouyou.'<tr><td>'.$value['Date_Commande'].'</td><td>'.$value['Statut_Commande'].'</td><td><a href="'. __SITE_URL .'/membre/commande/'.$value['ID_Commande'].'" title="voir detail" data-toggle="modal" data-target="#modal" class="LienModal" rel="1">Detail</a></td></tr>';
+                         
+                     }
+                     $this->registry->template->commandes = $bouyou;
+                  
+                $this->registry->template->show('facture');
             }
-            $this->registry->template->show('facture');
+            
+            
         }
         
     }

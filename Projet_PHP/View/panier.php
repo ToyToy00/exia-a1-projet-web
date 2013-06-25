@@ -49,20 +49,18 @@ function plusarticle(id_)
         type: 'POST', // Le type de ma requete
         url: '<?php echo __SITE_URL; ?>/panier/plus/', // L'url vers laquelle la requete sera envoyee
         data: {
-            id: id_ // Les donnees que l'on souhaite envoyer au serveur au format JSON
+            id: id_ // Les donnees que l'on souhaite envoyer 
         },
-        success: function(data) {
-            
-            document.getElementById('qte-'+id_).innerHTML = parseInt(document.getElementById('qte-'+id_).innerHTML)+1;
+        success: function(data) { //On success        
+            document.getElementById('qte-'+id_).innerHTML = parseInt(document.getElementById('qte-'+id_).innerHTML)+1; // on ajoute 1 a la quantité
         },
-        error: function() {
+        error: function() { //si une erreur apparait (impossible de charger la page cible)
             alert("planté");
         }
-    });
-    
-        $("#body").load("panier/index");
-
+    }); 
+        $("#body").load("panier/index"); //on recharge le <body> de notre page pour mettre a jour le prix total qui est calculé en php
     }
+    
     function minusarticle(id_)
 {
     jQuery.ajax({
