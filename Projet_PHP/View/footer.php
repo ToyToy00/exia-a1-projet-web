@@ -23,22 +23,24 @@
             <li class="nav-header">Liens utiles</li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Infos pratiques</a></li>
-            <li><a href="#"></a></li>
+            <li><a href="<?php echo __SITE_URL; ?>/index/plan_site/">Plan du site</a></li>
             <li class="nav-header">Partenaires</li>
             <li><a href="http://www.esl.eu/fr/"><img style="width:95%" alt="ESL" src="<?php echo __SITE_URL; ?>/img/partenaire/partenaire1.jpg"></a></li>
             <li><a href="http://en.intelextrememasters.com/nyc-vs-shanghai/" ><img style="width:95%" alt="Intel Extreme Masters"src="<?php echo __SITE_URL; ?>/img/partenaire/partenaire2.jpg"></a></li>
         </ul>
     </div><!--/.well --> 
 </div><!-- /.span -->
-
-            <div class="span10 modal-footer">
+        <footer style="margin-left: 0"class="span10 modal-footer">
                 <p>&copy; Copyright 2013 EXI@STORE Groupe: Clement Valentin Lucien</p>
-            </div>  
-</div><!-- /.row-fluid -->
+            </footer> 
 
+
+</div><!-- /.row-fluid -->
+ 
 <?php
 ?>
 </body>
+    
 
 <!-- Le javascript
     ================================================== -->
