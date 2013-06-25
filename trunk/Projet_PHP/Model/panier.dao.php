@@ -24,10 +24,10 @@ class panier_pdo {
         return $query->fetch();
     }
     
-    public function add_commande($ID_Client)
+    public function add_commande($ID_Client, $typecb)
     {
         $con = db::getInstance();
-        $req = "INSERT INTO `exiastore`.`commandes` (`ID_Client`, `ID_Adresse`, `Date_Commande`, `Paiement`, `Statut_Commande`) VALUES ('$ID_Client', '0', CURRENT_TIMESTAMP, 'CB', 'Préparation');";
+        $req = "INSERT INTO `exiastore`.`commandes` (`ID_Client`, `ID_Adresse`, `Date_Commande`, `Paiement`, `Statut_Commande`) VALUES ('$ID_Client', '0', CURRENT_TIMESTAMP, '" . $typecb . "', 'Preparation');";
         $exec = $con->exec($req);
         return $con->lastInsertId();
     }
@@ -55,5 +55,12 @@ class panier_pdo {
         $exec = $con->exec($req);
         return $con->lastInsertId();
         }
+        public function ListeDeroulanteTypeCb()
+    {
+        $con = db::getInstance();
+        $req = "SELECT typecb FROM typecb";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
 }
 ?>
