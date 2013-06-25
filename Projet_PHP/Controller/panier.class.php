@@ -9,7 +9,8 @@ class panier_class extends router {
     }
 
     function index() {
-        if (isset($_SESSION['user'])) {
+
+        if (isset($_SESSION['user']['panier'])) {
             //$this->registry->db->panier_pdo->select_article($)
             $panier = array();
             
@@ -31,7 +32,7 @@ class panier_class extends router {
             $this->registry->template->show('panier');
         } else {
 
-            $this->registry->template->message = "Vous n'êtes pas connecté";
+            $this->registry->template->message = "Aucun article dans le panier.";
             $this->registry->template->show('message');
         }
     }
