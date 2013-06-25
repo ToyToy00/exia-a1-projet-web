@@ -31,6 +31,9 @@
     </div><!--/.well --> 
 </div><!-- /.span -->
 
+            <div class="span10 modal-footer">
+                <p>&copy; Copyright 2013 EXI@STORE Groupe: Clement Valentin Lucien</p>
+            </div>  
 </div><!-- /.row-fluid -->
 
 <?php

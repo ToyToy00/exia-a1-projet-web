@@ -101,7 +101,7 @@ sub {
 img {
   width: auto\9;
   height: auto;
-  max-width: 100%;
+  width: 100%;
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
@@ -410,7 +410,7 @@ a:focus {
   float: left;
   width: 100%;
   min-height: 30px;
-  margin-left: 2.127659574468085%;
+  margin-left: 0%;
   *margin-left: 2.074468085106383%;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
