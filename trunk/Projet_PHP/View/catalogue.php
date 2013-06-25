@@ -108,8 +108,5 @@ foreach ($article_array as $key => $value) {
 
 
         </div>
-    </div>
-    <footer class="modal-footer">
-        <p>&copy; Copyright 2013 EXI@STORE Groupe: Clement Valentin Lucien</p>
-    </footer>   
+    </div> 
 </div>

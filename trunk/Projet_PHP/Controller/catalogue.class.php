@@ -15,14 +15,17 @@ class catalogue_class extends router {
         $this->registry->template->show('catalogue');
     }
 
-    function article($id) {
-        if ($tab = $this->registry->db->catalogue_pdo->select_article($id)) {
+    function article($id = NULL) {
+        if ($id != NULL) {
+            $tab = $this->registry->db->catalogue_pdo->select_article($id);
             $this->getCategories();
             $this->registry->template->article = $tab;
             $this->registry->template->show('detail_article');
-        }
-        $this->registry->template->message = 'Cet Article n\'existe pas.';
+        }else {
+            $this->registry->template->message = 'Cet Article n\'existe pas.';
         $this->registry->template->show('message');
+        }
+        
     }
 
     function cd() {
