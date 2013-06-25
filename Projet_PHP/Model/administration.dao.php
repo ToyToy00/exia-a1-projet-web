@@ -23,10 +23,35 @@ class administration_pdo {
         return $query->fetchAll();
     }
     
+    public function ListeDeroulantePreparation()
+    {
+        $con = db::getInstance();
+        $req = "SELECT Statut_Commande FROM Commandes";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
+    
+    public function ListeDeroulanteCommande()
+    {
+        $con = db::getInstance();
+        $req = "SELECT ID_Commande FROM commandes";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
+    
     public function select_all($titre)
     {
         $con = db::getInstance();
         $req = "SELECT ID_Article ,Theme, img, Prix, Type, Titre, Date_Edition, Description, Editeur, Seuil, Stock, Statut FROM articles WHERE Titre = '" . $titre . "'";
+     
+        $query = $con->query($req);
+        return $query->fetch();
+    }
+    
+    public function select_all_commande($idcommande)
+    {
+        $con = db::getInstance();
+        $req = "SELECT * FROM commandes WHERE ID_Commande = " . $idcommande . "";
      
         $query = $con->query($req);
         return $query->fetch();
@@ -52,6 +77,14 @@ class administration_pdo {
     {
         $con = db::getInstance();
         $req = "DELETE FROM exiastore.articles WHERE articles.ID_Article = " . $id_article . "";
+        $exec = $con->exec($req);
+        return 1;
+    }
+    
+    public function UpdateCommande($id_commande, $statutCommande)
+    {
+        $con = db::getInstance();
+        $req = "UPDATE  exiastore.commandes SET  Statut_Commande =  '" . $statutCommande . "' WHERE commandes.ID_Commande = '" . $id_commande . "'";
         $exec = $con->exec($req);
         return 1;
     }

@@ -22,17 +22,23 @@ class administration_class extends router {
             $this->registry->template->seuil = '';
             $this->registry->template->stock = '';
             $this->registry->template->statut = '';
+            $this->registry->template->Statut_Commande = '';
+            $this->registry->template->ID_Client = '';
+            $this->registry->template->ID_Adresse = '';
+            $this->registry->template->Date_Commande = '';
+            $this->registry->template->Paiement = '';
 
 
             $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
             $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
             $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+            $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
+           
             $this->registry->template->ttype = $reponse;
             $this->registry->template->Titre = $reponse2;
             $this->registry->template->TTitre = $reponse3;
-
-
-
+            $this->registry->template->ID_Commande = $reponse4;
+           
 
             $this->registry->template->show('administration');
         } else {
@@ -47,11 +53,12 @@ class administration_class extends router {
             $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
             $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
             $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+            $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
             $this->registry->template->type = $reponse;
             $this->registry->template->Titre = $reponse2;
             $this->registry->template->TTitre = $reponse3;
-
-
+            $this->registry->template->ID_Commande = $reponse4;
+            
             $Theme = ($_POST['Theme']);
             $Image = ($_POST['Image']);
             $Prix = ($_POST['Prix']);
@@ -83,14 +90,22 @@ class administration_class extends router {
                 $this->registry->template->seuil = '';
                 $this->registry->template->stock = '';
                 $this->registry->template->statut = '';
+                $this->registry->template->Statut_Commande = '';
+                $this->registry->template->ID_Client = '';
+                $this->registry->template->ID_Adresse = '';
+                $this->registry->template->Date_Commande = '';
+                $this->registry->template->Paiement = '';
 
 
                 $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
                 $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
                 $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
                 $this->registry->template->ttype = $reponse;
                 $this->registry->template->Titre = $reponse2;
                 $this->registry->template->TTitre = $reponse3;
+                $this->registry->template->ID_Commande = $reponse4;
+               
                 $this->registry->template->show('administration');
             } else {
                 echo "<script> alert('Champs non remplis') </script>";
@@ -106,14 +121,22 @@ class administration_class extends router {
                 $this->registry->template->seuil = '';
                 $this->registry->template->stock = '';
                 $this->registry->template->statut = '';
+                $this->registry->template->Statut_Commande = '';
+                $this->registry->template->ID_Client = '';
+                $this->registry->template->ID_Adresse = '';
+                $this->registry->template->Date_Commande = '';
+                $this->registry->template->Paiement = '';
 
 
                 $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
                 $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
                 $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
                 $this->registry->template->ttype = $reponse;
                 $this->registry->template->Titre = $reponse2;
                 $this->registry->template->TTitre = $reponse3;
+                $this->registry->template->ID_Commande = $reponse4;
+                
                 $this->registry->template->show('administration');
             }
         } else {
@@ -127,9 +150,12 @@ class administration_class extends router {
             $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
             $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
             $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+            $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
             $this->registry->template->ttype = $reponse;
             $this->registry->template->Titre = $reponse2;
             $this->registry->template->TTitre = $reponse3;
+            $this->registry->template->ID_Commande = $reponse4;
+           
             $titrearticle = $_POST['Titre'];
 
             $tab = $this->registry->db->administration_pdo->select_all($titrearticle);
@@ -185,14 +211,23 @@ class administration_class extends router {
                 $this->registry->template->seuil = '';
                 $this->registry->template->stock = '';
                 $this->registry->template->statut = '';
+                $this->registry->template->Statut_Commande = '';
+                $this->registry->template->ID_Client = '';
+                $this->registry->template->ID_Adresse = '';
+                $this->registry->template->Date_Commande = '';
+                $this->registry->template->Paiement = '';
 
 
                 $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
                 $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
                 $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
+               
                 $this->registry->template->ttype = $reponse;
                 $this->registry->template->Titre = $reponse2;
                 $this->registry->template->TTitre = $reponse3;
+                $this->registry->template->ID_Commande = $reponse4;
+                
                 $this->registry->template->show('administration');
             } else {
                 echo "<script> alert('Champs non remplis ou mal renseigné') </script>";
@@ -208,14 +243,22 @@ class administration_class extends router {
                 $this->registry->template->seuil = '';
                 $this->registry->template->stock = '';
                 $this->registry->template->statut = '';
+                $this->registry->template->Statut_Commande = '';
+                $this->registry->template->ID_Client = '';
+                $this->registry->template->ID_Adresse = '';
+                $this->registry->template->Date_Commande = '';
+                $this->registry->template->Paiement = '';
 
 
                 $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
                 $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
                 $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+                $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
                 $this->registry->template->ttype = $reponse;
                 $this->registry->template->Titre = $reponse2;
                 $this->registry->template->TTitre = $reponse3;
+                $this->registry->template->ID_Commande = $reponse4;
+                
                 $this->registry->template->show('administration');
             }
         } else {
@@ -243,17 +286,86 @@ class administration_class extends router {
             $this->registry->template->seuil = '';
             $this->registry->template->stock = '';
             $this->registry->template->statut = '';
+            $this->registry->template->Statut_Commande = '';
+            $this->registry->template->ID_Client = '';
+            $this->registry->template->ID_Adresse = '';
+            $this->registry->template->Date_Commande = '';
+            $this->registry->template->Paiement = '';
 
 
             $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
             $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
             $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+            $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
             $this->registry->template->ttype = $reponse;
             $this->registry->template->Titre = $reponse2;
             $this->registry->template->TTitre = $reponse3;
+            $this->registry->template->ID_Commande = $reponse4;
+            
             $this->registry->template->show('administration');
         }
     }
 
+    function modifiercommande() {
+        if (isset($_SESSION['user']['user_admin'])) {
+            $idcommande = ($_POST['ID_Commandee']);
+            $statut_commande = ($_POST['Statut_CommandeM']);
+
+            $resultat = $this->registry->db->administration_pdo->UpdateCommande($idcommande, $statut_commande);
+        } else {
+            echo 'ttestt';
+        }
+    }
+
+    function affichercommande() {
+        if (isset($_SESSION['user']['user_admin'])) {
+            $this->registry->template->id_article = '';
+            $this->registry->template->theme = '';
+            $this->registry->template->img = '';
+            $this->registry->template->prix = '';
+            $this->registry->template->type = '';
+            $this->registry->template->titre = '';
+            $this->registry->template->date_edition = '';
+            $this->registry->template->description = '';
+            $this->registry->template->editeur = '';
+            $this->registry->template->seuil = '';
+            $this->registry->template->stock = '';
+            $this->registry->template->statut = '';
+            $this->registry->template->Statut_Commande = '';
+            $this->registry->template->ID_Client = '';
+            $this->registry->template->ID_Adresse = '';
+            $this->registry->template->Date_Commande = '';
+            $this->registry->template->Paiement = '';
+
+            $id_commande = $_POST['ID_Commande'];
+
+            $tab = $this->registry->db->administration_pdo->select_all_commande($id_commande);
+            $this->registry->template->ID_Commande = $tab['ID_Commande'];
+            $this->registry->template->ID_Client = $tab['ID_Client'];
+            $this->registry->template->ID_Adresse = $tab['ID_Adresse'];
+            $this->registry->template->Date_Commande = $tab['Date_Commande'];
+            $this->registry->template->Paiement = $tab['Paiement'];
+            $this->registry->template->Statut_Commande = $tab['Statut_Commande'];
+
+            $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
+            $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+            $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
+            $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
+            $this->registry->template->ttype = $reponse;
+            $this->registry->template->Titre = $reponse2;
+            $this->registry->template->TTitre = $reponse3;
+            $this->registry->template->ID_Commande = $reponse4;
+
+
+
+
+            $this->registry->template->show('administration');
+        } else {
+            $this->registry->template->message = "Vous n'êtes pas un admin";
+            $this->registry->template->show('message');
+        }
+    }
+
 }
+
 ?>
