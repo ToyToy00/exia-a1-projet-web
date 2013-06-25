@@ -148,7 +148,7 @@
                     </td>
                     <td>
                         <form class="form-signin" action="modificationAdresse" method="POST" name="formMembreAdresse" onsubmit="valider();" style="display:inline-block;">
-                            <h2 class="form-signin-heading">Mes infos</h2>
+                            <h2 class="form-signin-heading">Mon Adresse</h2>
                             Adresse
                             <input type="text" style="width: 90%;"  class="input-block-level" onchange="valider();" placeholder="Adresse" name="Adresse" value="<?php echo $_SESSION['user']['Adresse']?>">
                             <i class="icon-remove" id="Adressei" > </i>

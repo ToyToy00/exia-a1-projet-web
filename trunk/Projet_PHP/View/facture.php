@@ -9,11 +9,16 @@
         <td>Statut</td><td>Detail</td></tr>
     
                      <?php
-                     foreach ($list_commandes as $key => $value) {
-                         echo '<tr><td>'.$value['Date_Commande'].'</td><td>'.$value['Statut_Commande'].'</td><td><a href="'. __SITE_URL .'/membre/commande/'.$value['ID_Commande'].'" title="voir detail">Detail</a></td></tr>';
-                         
-                     }
+                        echo $commandes;
                      ?>
         
 </table>
+            
         </div>
+        <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Titre de la modale</h3>
+     </div>
+     <div class="modal-body"></div>
+</div>

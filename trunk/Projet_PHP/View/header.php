@@ -36,7 +36,6 @@
                           <li><a href="<?php echo __SITE_URL; ?>/catalogue/">TOUT</a></li>
                           <li><a href="<?php echo __SITE_URL; ?>/catalogue/cd">CD</a></li>
                           <li><a href="<?php echo __SITE_URL; ?>/catalogue/dvd">DVD</a></li>
-                          <li><a href="#">Recherche</a></li>
                         </ul>
                     </li>
                       </ul>

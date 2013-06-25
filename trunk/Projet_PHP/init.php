@@ -1,23 +1,16 @@
 <?php
 
 class router {
-    /*
-     * @the registry
-     */
 
-    private $error;
-
-    /*
-     * @the controller path
-     */
+    //Déclaration des variables
     protected $path;
     private $registry;
-    private $args = array();
     public $file;
     public $controller;
     public $action;
     public $id;
 
+    //appelé par index.php reçoit le registre et le chemin absolu du site
     function __construct($registry, $path) {
 
         /*         * * check if path i sa directory ** */
@@ -40,23 +33,50 @@ class router {
      */
     public function loader() {
 
-        /*         * * check the route ** */
+        /*         * * parsage de l'url retourné par l'url rewriting pour récupérer les actions a éffectuer  ** */
         $this->getController();
 
-        /*         * * if the file is not there diaf ** */
+        /*         * * si le fichier existe ** */
         if (is_readable($this->file) != false) {
 
 
             /*             * * include the controller ** */
             include $this->file;
-            /*             * * a new controller class instance ** */
+
+            /*             * * Définition des nom des classes necessaires ** */
             $class = $this->controller . '_class';
             $pdo = $this->controller . '_pdo';
-            $controller = new $class($this->registry);
-            $this->registry->db = new db($this->controller . '.dao.php');
-            $this->registry->db->$pdo = new $pdo();
-            //$model = new db($this->controller . '.dao.php');
+            //on sécurise les pages membres
+            if ($this->controller == "panier" || $this->controller == "membre" || $this->controller == "commande") {
+                //si la session n'existe pas on affiche une erreur
+                if (!isset($_SESSION['user'])) {
+                    $this->file = $this->path . '/Controller/message.class.php';
+                    $this->controller = 'message';
+                    /*                     * * include the controller ** */
+                    include $this->file;
+                    /*                     * * a new controller class instance ** */
+                    $class = $this->controller . '_class';
+                    $this->registry->template->message = 'Connectez vous';
+                    $controller = new $class($this->registry);
+                    $action = 'index';
+                } else {
+                    // instanciation du controleur
+                    $controller = new $class($this->registry);
+
+                    // on inclut et on instancie le Modele
+                    $this->registry->db = new db($this->controller . '.dao.php');
+                    $this->registry->db->$pdo = new $pdo();
+                }
+            } else {
+                // instanciation du controleur
+                $controller = new $class($this->registry);
+
+                // on inclut et on instancie le Modele
+                $this->registry->db = new db($this->controller . '.dao.php');
+                $this->registry->db->$pdo = new $pdo();
+            }
         } else {
+            //sinon on affiche un message d'erreur 
             $this->file = $this->path . '/Controller/message.class.php';
             $this->controller = 'message';
             /*             * * include the controller ** */
@@ -67,10 +87,8 @@ class router {
             $controller = new $class($this->registry);
         }
 
-
-
-
         /*         * * check if the action is callable ** */
+        // l'action est la fonction qui sera appellée dans le controleur
         if (is_callable(array($controller, $this->action)) == false) {
             $action = 'index';
         } else {
@@ -78,24 +96,24 @@ class router {
         }
         /*         * * run the action ** */
 
-        if ($this->controller == "panier" || $this->controller == "membre" || $this->controller == "commande") {
-            if (isset($_SESSION['user'])) {
-                $controller->$action($this->id);
-            } else {
-                $this->file = $this->path . '/Controller/message.class.php';
-                $this->controller = 'message';
-                /*                 * * include the controller ** */
-                include $this->file;
-                /*                 * * a new controller class instance ** */
-                $class = $this->controller . '_class';
-                $this->registry->template->message = 'Connectez vous';
-                $controller = new $class($this->registry);
-                $action = 'index';
-                $controller->$action($this->id);
-            }
-        } else {
-            $controller->$action($this->id);
-        }
+//        //on sécurise les pages membres
+//        if ($this->controller == "panier" || $this->controller == "membre" || $this->controller == "commande") {
+//            //si la session n'existe pas on affiche une erreur
+//            if (!isset($_SESSION['user'])) {
+//          
+//                $this->file = $this->path . '/Controller/message.class.php';
+//                $this->controller = 'message';
+//                /*                 * * include the controller ** */
+//                include $this->file;
+//                /*                 * * a new controller class instance ** */
+//                $class = $this->controller . '_class';
+//                $this->registry->template->message = 'Connectez vous';
+//                $controller = new $class($this->registry);
+//                $action = 'index';
+//            }
+//        }
+        //on affiche la page
+        $controller->$action($this->id);
     }
 
     /**
