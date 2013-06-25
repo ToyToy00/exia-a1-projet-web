@@ -15,12 +15,22 @@
                         <tr>
                             <td>
                                 <div class="pull-left well">
-                                    Coordonnées bancaires : <br />
+                                    Coordonnées bancaires : <br /> <br />
 
                                     <table>
+                                        
                                         <tr><td>Numero de carte</td><td>Cryptogramme</td></tr>
-                                        <tr><td><input type="text" name="num_carte"></td><td><input type="text" name="crypto"></td></tr>
-                                        <tr><td>Date d'expiration </td><td><input type="text" name="mois">/<input type="text" name="annee"></td></tr>
+                                        <tr><td><input type="text" name="num_carte" placeholder="Numéro"></td><td><input type="text" name="crypto" placeholder="Cryptogramme">  </td></tr>
+                                      
+                            <select style="width: 50%;" id="typecb" name="typecb">
+                            <?php
+                            // On affiche chaque entrée une à une
+                            foreach ($typecb as $key => $donnees) {
+                                echo '<option value="' . $donnees['typecb'] . '">' . $donnees['typecb'] . '</option>'; //ou bien $donnees['monchamp']
+                            }
+                            ?>
+                            </select>
+                                        <tr><td>Date d'expiration </td><td> <input type="text" name="mois" placeholder="Mois">/<input type="text" name="annee" placeholder="Année"></td></tr>
                                     </table>
 
 

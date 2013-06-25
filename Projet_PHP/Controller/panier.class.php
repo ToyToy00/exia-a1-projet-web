@@ -12,6 +12,8 @@ class panier_class extends router {
 
         if (isset($_SESSION['user']['panier'])) {
             //$this->registry->db->panier_pdo->select_article($)
+            
+            
             $panier = array();
             
             foreach ($_SESSION['user']['panier'] as $key => $value) {
@@ -40,6 +42,8 @@ class panier_class extends router {
     function commande() {
         if (isset($_SESSION['user']['panier'])) {
             if (isset($_POST['commande'])) {
+                $reponse = $this->registry->db->panier_pdo->ListeDeroulanteTypeCb();
+                $this->registry->template->typecb = $reponse;
                 $tab = $this->registry->db->panier_pdo->select_adresse();
                 $this->registry->template->adresse = $tab;
                 $this->registry->template->show('commande_adresse');
@@ -49,7 +53,11 @@ class panier_class extends router {
 
     function valider() {
         if (isset($_SESSION['user']['panier']) && isset($_POST['submit'])) {
-
+            
+//            $reponse = $this->registry->db->panier_pdo->ListeDeroulanteTypeCb();
+//            $this->registry->template->typecb = $reponse;
+            
+            $typecb = ($_POST['typecb']);
             $num_carte = trim($_POST['num_carte']);
             $crypto = trim($_POST['crypto']);
             $mois = trim($_POST['mois']);
@@ -59,11 +67,11 @@ class panier_class extends router {
             $cp = intval($_POST['CP']);
 
             //vérifier que les champs pour la carte bleu ne sont pas vide
-            if (is_numeric($num_carte) && is_numeric($crypto) && is_numeric($mois) && is_numeric($annee) && strlen($num_carte) == 10) {
+            if (is_numeric($num_carte) && is_numeric($crypto) && is_numeric($mois) && is_numeric($annee) && strlen($num_carte) == 10 && strlen($crypto) == 3 )  {
 
                 //enregistrer la commande
-                $id_commande = $this->registry->db->panier_pdo->add_commande($_SESSION['user']['user_id']);
-                var_dump($id_commande);
+                $id_commande = $this->registry->db->panier_pdo->add_commande($_SESSION['user']['user_id'], $typecb);
+                
                 if (is_numeric($id_commande)) {
 
                     //récupération de l'id de l'adresse et ajout si nouvelle
