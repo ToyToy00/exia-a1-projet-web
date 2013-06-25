@@ -205,6 +205,50 @@
                         </form>  
                     </div>
                 </td>
+                <td>
+                    <div class="form-signin">
+                        <h2 class="form-signin-heading">Modifier l'état d'une commande</h2>
+
+                        
+                            <form  action="<?php echo __SITE_URL ?>/administration/affichercommande" method="POST" id="formList4" style="display:inline-block;">
+                        <select onchange="document.getElementById('formList4').submit()" id="ID_Commande" name="ID_Commande">
+                            <option disabled selected value='0'>Selectionner une commande à modifier</option>
+                            <?php
+                        // On affiche chaque entrée une à une
+                        foreach ($ID_Commande as $key => $donnees) {
+
+                            echo '<option value="' . $donnees['ID_Commande'] . '" >' . $donnees['ID_Commande'] . '</option>';
+                        }
+                        ?>
+                        </select>
+                    </form>
+                            <form  action="<?php echo __SITE_URL ?>/administration/modifiercommande" method="POST" name="formModifierCommande" style="display:inline-block;">
+
+                            
+                            <input type="text"  class="input-block-level" name="ID_Commandee" id="ID_Article3" value="<?php echo $ID_Commande; ?>">    
+                            
+                            ID Client
+                            <input type="text"  class="input-block-level" disabled placeholder="ID Client" name="ID_Client" value="<?php echo $ID_Client; ?>">    
+                            ID Adresse
+                            <input type="text"  class="input-block-level" disabled placeholder="ID Adresse" name="ID_Adresse" value="<?php echo $ID_Adresse; ?>">
+                            Date de la commande
+                            <input type="text"  class="input-block-level" disabled placeholder="Date de la commande" name="Date_Commande" value="<?php echo $Date_Commande; ?>">
+                            Paiment
+                            <input type="text"  class="input-block-level" disabled placeholder="Moyen de paiement" name="Paiement" value="<?php echo $Paiement; ?>">
+                            Statut de la commande
+                            <input type="text"  class="input-block-level" disabled placeholder="Statut de la commande" name="Statut_Commande" value="<?php echo $Statut_Commande; ?>">
+                            
+                           
+                            Nouveau statut de la commande (Preparation, Prete ou Envoyee)
+                            <input type="text"  class="input-block-level"  placeholder="Nouveau statut de la commande" name="Statut_CommandeM" >
+                            
+
+                          
+
+                            <button class="btn btn-large btn-primary" type="submit" >Modifier</button>
+                        </form>  
+                    </div>
+                </td>
                 </tr>
             </table>
         </center>
@@ -212,6 +256,7 @@
         <script>
                             document.getElementById("ID_Article").style.display = 'none';
                             document.getElementById("ID_Article2").style.display = 'none';
+                            document.getElementById("ID_Article3").style.display = 'none';
         </script>
 
     </div> <!-- /container -->
