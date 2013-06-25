@@ -25,7 +25,24 @@ class membre_class extends router {
             $this->registry->template->show('message');
         }
     }
-
+    
+    function commande($ID_Commande = NULL)
+    {
+        if (isset($_SESSION['user'])) {
+            
+            $commandes = $this->registry->db->membre_pdo->List_commande();
+            $this->registry->template->list_commandes = $commandes;
+            
+            if($ID_Commande != NULL)
+            {
+                $detail_commandes = $this->registry->db->membre_pdo->Detail_commande($ID_Commande);
+                $this->registry->template->detail_commandes = $detail_commandes;
+            }
+            $this->registry->template->show('facture');
+        }
+        
+    }
+    
     function logout() {
         session_unset();
         session_destroy();

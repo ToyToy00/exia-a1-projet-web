@@ -9,9 +9,8 @@
         <ul class="nav nav-list">
             <li class="nav-header">Mon Compte</li>
             <li><a href="<?php echo __SITE_URL; ?>/membre/">Votre compte</a></li>
-            <li><a href="#">Vos commandes</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            <li><a href="<?php echo __SITE_URL; ?>/membre/commande/">Vos commandes</a></li>
+
             <li class="nav-header"> Panier   <i class="icon-shopping-cart"></i></li>
             <div class="well">
                 <div class="well_blanc">
