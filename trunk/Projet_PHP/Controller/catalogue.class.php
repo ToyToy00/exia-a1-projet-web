@@ -62,24 +62,22 @@ class catalogue_class extends router {
                     $critere = trim($_POST['critere']);
                 }
                 if (!empty($_POST['theme'])) {
-                    $theme = ' AND Theme = \'' . trim($_POST['theme'])  . '\'';
+                    $theme = ' AND Theme = \'' . trim($_POST['theme']) . '\'';
                 }
                 if (!empty($_POST['type']))
                     $type = ' AND Type = \'' . trim($_POST['type']) . '\'';
-                
-                $tab = $this->registry->db->catalogue_pdo->search($search_query,$critere,$theme,$type);
-                 $this->registry->template->article_array = $tab;
-                 $this->registry->template->show('catalogue');
-                
-            }else{
+
+                $tab = $this->registry->db->catalogue_pdo->search($search_query, $critere, $theme, $type);
+                $this->registry->template->article_array = $tab;
+                $this->registry->template->show('catalogue');
+            }else {
                 $this->registry->template->message = 'Il faut rechercher quelque chose';
-                 $this->registry->template->show('message');
+                $this->registry->template->show('message');
             }
-            
-        }else{
+        } else {
             $tab = $this->registry->db->catalogue_pdo->select_all();
-        $this->registry->template->article_array = $tab;
-        $this->registry->template->show('catalogue');
+            $this->registry->template->article_array = $tab;
+            $this->registry->template->show('catalogue');
         }
     }
 

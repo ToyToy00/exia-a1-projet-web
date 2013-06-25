@@ -62,6 +62,7 @@ class panier_class extends router {
 
                 //enregistrer la commande
                 $id_commande = $this->registry->db->panier_pdo->add_commande($_SESSION['user']['user_id']);
+                var_dump($id_commande);
                 if (is_numeric($id_commande)) {
 
                     //récupération de l'id de l'adresse et ajout si nouvelle
@@ -74,6 +75,8 @@ class panier_class extends router {
 
                     //insertion du détail de la commande
                     foreach ($_SESSION['user']['panier'] as $key => $value) {
+                        if(is_numeric($key))
+                        {
                         $i = 0;
                         $tab = $this->registry->db->panier_pdo->select_article($key);
                         if ($tab['Stock'] > $value[$key] && $i == 0) {
@@ -83,7 +86,8 @@ class panier_class extends router {
                             $nb_prepa = 3;
                         }
                         $this->registry->db->panier_pdo->update_commande($id_commande, $id_adresse);
-                        $this->registry->db->panier_pdo->add_detail($id_commande, $key, $value[$key]);
+                        $this->registry->db->panier_pdo->add_detail($id_commande, $key, $_SESSION['user']['panier'][$key]);
+                        }
                         
                     }
                     
@@ -124,7 +128,7 @@ class panier_class extends router {
                     unset($_SESSION['user']['panier']['articles'][$key]);
                 }
             }
-            echo var_dump($_SESSION['user']['panier_calcul']);
+            //echo var_dump($_SESSION['user']['panier_calcul']);
         }
     }
 

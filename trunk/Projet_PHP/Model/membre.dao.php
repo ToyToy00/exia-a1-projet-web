@@ -16,6 +16,23 @@ class membre_pdo {
         return $query->fetch();
     }
     
+    public function Detail_commande($ID_Commande)
+    {
+        $con = db::getInstance();
+        $req = "SELECT * FROM `detail_commande` INNER JOIN articles ON detail_commande.ID_Article = articles.ID_Article WHERE ID_Commande = $ID_Commande";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
+    
+    public function List_commande()
+    {
+        $con = db::getInstance();
+        $req = "SELECT * FROM `commandes` WHERE ID_Client = '" . $_SESSION['user']['user_id'] ."'";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
+    
+    
     public function UpdateAdresse($adresse, $ville, $cp)
     {
         $con = db::getInstance();

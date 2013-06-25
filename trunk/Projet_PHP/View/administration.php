@@ -107,7 +107,8 @@
                     <h2 class="form-signin-heading">Choisir un article</h2>
                     <form  action="<?php echo __SITE_URL ?>/administration/afficherarticle" method="POST" id="formList2" style="display:inline-block;">
                         <select onchange="document.getElementById('formList2').submit()" id="Titre" name="Titre">
-                        <?php
+                            <option disabled selected value='0'>Selectionner un article</option>
+                            <?php
                         // On affiche chaque entrée une à une
                         foreach ($Titre as $keyy => $donneess) {
 

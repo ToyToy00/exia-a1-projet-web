@@ -29,7 +29,7 @@ class panier_pdo {
         $con = db::getInstance();
         $req = "INSERT INTO `exiastore`.`commandes` (`ID_Client`, `ID_Adresse`, `Date_Commande`, `Paiement`, `Statut_Commande`) VALUES ('$ID_Client', '0', CURRENT_TIMESTAMP, 'CB', 'Préparation');";
         $exec = $con->exec($req);
-        return 1;
+        return $con->lastInsertId();
     }
     
     public function update_commande($ID_Commande, $ID_Adresse)
@@ -48,10 +48,10 @@ class panier_pdo {
         return $con->lastInsertId();
     }
     
-    public function InsertAdresse($email, $adresse, $ville, $cp)
+    public function InsertAdresse($ID_Commande, $email, $adresse, $ville, $cp)
     {
-        $con = db::getInstance($email, $adresse, $ville, $cp);
-        $req = "INSERT INTO adresses (ID_Client, ID_Commande, Adresse, Ville, CP) VALUES ((SELECT ID_Client FROM client WHERE Email = '" . $email ."'), " . $adresse . "', '" . $ville . "', " . $cp . ")";
+        $con = db::getInstance();
+        $req = "INSERT INTO adresses (ID_Client, ID_Commande, Adresse, Ville, CP) VALUES ((SELECT ID_Client FROM client WHERE Email = '" . $email ."'), '$ID_Commande','" . $adresse . "', '" . $ville . "', " . $cp . ")";
         $exec = $con->exec($req);
         return $con->lastInsertId();
         }
