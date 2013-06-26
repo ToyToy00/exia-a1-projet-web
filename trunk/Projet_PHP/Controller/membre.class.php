@@ -30,15 +30,15 @@ class membre_class extends router {
     {
         if (isset($_SESSION['user'])) {
             
-            
+            $bouyou = '<tr><td>Date</td><td>Statut</td><td>Detail</td></tr>';
            
             if($ID_Commande != NULL)
             {
                 $detail_commandes = $this->registry->db->membre_pdo->Detail_commande($ID_Commande);
-             
-                $bouyou = '';
+                $bouyou = '<tr><td>Titre</td><td>Quantite</td><td>Prix</td></tr>';
+                
                 foreach ($detail_commandes as $key => $value) {
-                         $bouyou = $bouyou.'<tr><td>'.$value['Titre'].'</td><td>'.$value['Prix'].'</td><td><a href="'. __SITE_URL .'/membre/commande/'.$value['ID_Commande'].'" title="voir detail" data-toggle="modal" data-target="#modal" class="LienModal" rel="1">Detail</a></td></tr>';
+                         $bouyou = $bouyou.'<tr><td>'.$value['Titre'].'</td><td>'.$value['Quantite'].'</td><td>'.$value['Prix'].'</td></td></tr>';
                          
                      }
                      $this->registry->template->commandes = $bouyou;
@@ -46,7 +46,7 @@ class membre_class extends router {
                 
             }else{
                 $commandes = $this->registry->db->membre_pdo->List_commande();
-                $bouyou = '';
+               
                 foreach ($commandes as $key => $value) {
                          $bouyou = $bouyou.'<tr><td>'.$value['Date_Commande'].'</td><td>'.$value['Statut_Commande'].'</td><td><a href="'. __SITE_URL .'/membre/commande/'.$value['ID_Commande'].'" title="voir detail" data-toggle="modal" data-target="#modal" class="LienModal" rel="1">Detail</a></td></tr>';
                          

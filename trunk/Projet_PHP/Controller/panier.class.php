@@ -68,11 +68,13 @@ class panier_class extends router {
             $cp = intval($_POST['CP']);
 
             //vérifier que les champs pour la carte bleu ne sont pas vide
-            if (is_numeric($num_carte) && is_numeric($crypto) && is_numeric($mois) && is_numeric($annee) && strlen($num_carte) == 10 && strlen($crypto) == 3) {
+            if (is_numeric($num_carte) && is_numeric($crypto) && is_numeric($mois) && is_numeric($annee) && strlen($num_carte) == 10 && strlen($crypto) == 3 && strlen($num_carte) == 10 && strlen($crypto) == 3) {
 
                 //enregistrer la commande
                 $id_commande = $this->registry->db->panier_pdo->add_commande($_SESSION['user']['user_id'], $typecb);
-
+                
+                if($mois > date('m') && $annee > date('Y'))
+                {
                 if (is_numeric($id_commande)) {
 
                     //récupération de l'id de l'adresse et ajout si nouvelle
@@ -104,6 +106,13 @@ class panier_class extends router {
                     $this->registry->template->show('finish_commande');
                     unset($_SESSION['user']['panier']);
                 }
+            }else{
+                $this->registry->template->message = "Date d'expiration invalide.";
+            $this->registry->template->show('message');
+            }
+            }else{
+                $this->registry->template->message = "Erreur dans les informations de paiement.";
+            $this->registry->template->show('message');
             }
         }
     }
