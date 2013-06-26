@@ -35,10 +35,10 @@ class template {
                         <button class="submit_login btn-primary btn_panier" class="btn" onclick="location.href=\'' . __SITE_URL . '/authentification/logout\'">Déconnexion</button>
                  ';
          
-            if(isset($_SESSION['user']['user_admin']))
+            /*if(isset($_SESSION['user']['user_admin']))
             {
                 $connect_nav .= '<button class="submit_login btn-primary btn_panier" class="btn" onclick="location.href=\'' . __SITE_URL . '/administration/\'">Administration</button>';
-            }
+            }*/
            $connect_nav .= '</p></div>';
           
            $this->registry->template->connect_nav = $connect_nav;
@@ -47,7 +47,7 @@ class template {
            {
            $count = count($_SESSION['user']['panier']);
 
-           if($_SESSION['user']['panier']['total'] != null)
+           if(isset($_SESSION['user']['panier']['total']))
            {
                $temp =  $count;
                $count = $temp - 1;
