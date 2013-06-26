@@ -42,7 +42,9 @@
 </head>
 
 <body>
-    <div class="modal-form container">
+    <div class="span10">
+    <div class="modal-body">
+    <div class="well">
         <center>
             <table>
                 <tr>
@@ -51,6 +53,8 @@
                             <h2 class="form-signin-heading">Nous contacter</h2>
                             Destinataire
                             <input type="text" class="input-block-level" disabled value="admin@exiastore.fr">
+                            Votre Email
+                            <input type="text" class="input-block-level"  placeholder="Votre Email" name="email_client" >
                             Sujet
                             <input type="text" class="input-block-level"  placeholder="Sujet" name="sujet" >
                             Message (20 caractères minimum)
@@ -62,7 +66,6 @@
                 </tr>
             </table>
         </center>
-
-
-
-    </div> <!-- /container -->
+    </div>
+  </div> <!-- /container -->
+</div>
