@@ -157,8 +157,17 @@ echo $alert;
                             Stock
                             <input type="text"  class="input-block-level" placeholder="Stock" name="Stock" value="<?php echo $stock; ?>">
                             Statut
-                            <input type="text"  class="input-block-level" placeholder="Statut" name="Statut" value="<?php echo $statut; ?>">
-
+                            <input type="text"  class="input-block-level" placeholder="Statut" disabled name="Statut" value="<?php echo $statut; ?>">
+                            Nouveau statut
+                            <select   name="statut_article">
+                                <option disabled selected value='0'>Nouveau statut de l'article</option>
+                            <?php
+                            
+                            foreach ($statut_article as $key => $donnees) {
+                                echo '<option value="' . $donnees['statut_article'] . '">' . $donnees['statut_article'] . '</option>'; //ou bien $donnees['monchamp']
+                            }
+                            ?>
+                            </select>
 
                             <button class="btn btn-large btn-primary" type="submit" >Modifier</button>
                         </form>  

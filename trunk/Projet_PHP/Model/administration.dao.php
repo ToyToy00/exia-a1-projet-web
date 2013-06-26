@@ -69,6 +69,14 @@ class administration_pdo {
         return $query->fetchAll();
     }
     
+    public function ListeDeroulanteStatutArticle(){
+     $con = db::getInstance();
+        $req = "SELECT statut_article FROM statut_article";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
+    
+    
     public function select_all($titre)
     {
         $con = db::getInstance();
