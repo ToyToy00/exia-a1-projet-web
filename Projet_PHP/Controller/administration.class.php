@@ -49,12 +49,14 @@ class administration_class extends router {
         $this->registry->template->statut_commande = '';
         $this->registry->template->ID_Commandee = '';
         $this->registry->template->alert = '';
+        $this->registry->template->statut_article ='';
 
         $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
         $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
         $reponse3 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
         $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
         $reponse5 = $this->registry->db->administration_pdo->ListeDeroulanteStatut();
+        $reponse6 = $this->registry->db->administration_pdo->ListeDeroulanteStatutArticle();
 
 
         $this->registry->template->ttype = $reponse;
@@ -62,6 +64,7 @@ class administration_class extends router {
         $this->registry->template->TTitre = $reponse3;
         $this->registry->template->ID_Commande = $reponse4;
         $this->registry->template->statut_commande = $reponse5;
+        $this->registry->template->statut_article = $reponse6;
     }
 
     function ajoutarticle() {
@@ -146,7 +149,7 @@ class administration_class extends router {
             $editeur = ($_POST['Editeur']);
             $seuil = ($_POST['Seuil']);
             $stock = ($_POST['Stock']);
-            $statut = ($_POST['Statut']);
+            $statut = ($_POST['statut_article']);
 
             if ($theme != '' && $image != '' && $prix != '' && $type != '' && $titre != '' && $date_edition != '' && $description != '' && $editeur != '' && $seuil != '' && $stock != '' && $statut != '' && is_numeric($prix) && is_numeric($seuil) && is_numeric($stock)) {
                 $resultat = $this->registry->db->administration_pdo->UpdateArticle($id_article, $theme, $image, $prix, $type, $titre, $date_edition, $description, $editeur, $seuil, $stock, $statut);
@@ -155,7 +158,7 @@ class administration_class extends router {
                 $this->init();
 
                 $this->registry->template->show('administration');
-            } else {
+            } else {    
                 echo "<script> alert('Champs non remplis ou mal renseigné') </script>";
                 $this->registry->template->ID_CommandeString = '';
                 $this->init();
