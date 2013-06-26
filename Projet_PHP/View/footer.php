@@ -9,9 +9,7 @@
         <ul class="nav nav-list">
             <li class="nav-header">Mon Compte</li>
             <li><a href="<?php echo __SITE_URL; ?>/membre/">Votre compte</a></li>
-            <li><a href="<?php echo __SITE_URL; ?>/membre/commande/">Vos commandes</a></li>
-            <li><a href="<?php echo __SITE_URL; ?>/contact/">Contact</a></li>
-            
+            <li><a href="<?php echo __SITE_URL; ?>/membre/commande/">Vos commandes</a></li>          
             <li class="nav-header"> Panier   <i class="icon-shopping-cart"></i></li>
             <div class="well">
                 <div class="well_blanc">
@@ -21,8 +19,7 @@
                 <button type="button" onclick="location.href='<?php echo __SITE_URL; ?>/panier/'" class=" btn_panier btn-primary">Voir tout le panier</button>
             </div>
             <li class="nav-header">Liens utiles</li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Infos pratiques</a></li>
+            <li><a href="<?php echo __SITE_URL; ?>/contact/">Contact</a></li>
             <li><a href="<?php echo __SITE_URL; ?>/index/plan_site/">Plan du site</a></li>
             <li class="nav-header">Partenaires</li>
             <li><a href="http://www.esl.eu/fr/"><img style="width:95%" alt="ESL" src="<?php echo __SITE_URL; ?>/img/partenaire/partenaire1.jpg"></a></li>

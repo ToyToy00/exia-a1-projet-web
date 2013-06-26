@@ -29,11 +29,12 @@ class contact_class extends router {
         if (isset($_SESSION['user'])) {
 
             $exia = 'admin@exiastore.fr';
+            $email = ($_POST['email']);
             $sujet = ($_POST['sujet']);
             $cmail = ($_POST['cmail']);
             
-            if($sujet != '' && $cmail != '' && strlen($cmail) >= 20){
-                @mail($exia, $sujet, $cmail);
+            if( $email != '' && $sujet != '' && $cmail != '' && strlen($cmail) >= 20){
+                @mail($email, $exia, $sujet, $cmail);
                 echo "<script> alert('Succès') </script>";
                 $this->registry->template->show('contact');
             }
