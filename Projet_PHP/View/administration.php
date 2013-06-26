@@ -211,11 +211,11 @@
 
                         
                             <form  action="<?php echo __SITE_URL ?>/administration/affichercommande" method="POST" id="formList4" style="display:inline-block;">
-                        <select onchange="document.getElementById('formList4').submit()" id="ID_Commande" name="ID_Commande">
+                        <select onchange="document.getElementById('formList4').submit();" name="ID_Commande">
                             <option disabled selected value='0'>Selectionner une commande à modifier</option>
                             <?php
                         // On affiche chaque entrée une à une
-                        foreach ($ID_Commande as $key => $donnees) {
+                        foreach($ID_Commande as $key => $donnees) {
 
                             echo '<option value="' . $donnees['ID_Commande'] . '" >' . $donnees['ID_Commande'] . '</option>';
                         }
@@ -225,7 +225,7 @@
                             <form  action="<?php echo __SITE_URL ?>/administration/modifiercommande" method="POST" name="formModifierCommande" style="display:inline-block;">
 
                             
-                            <input type="text"  class="input-block-level" name="ID_Commandee" id="ID_Article3" value="<?php echo $ID_Commande; ?>">    
+                            <input type="text"  class="input-block-level" name="ID_Commandee" id="ID_Article3" value="<?php echo $ID_Commandee; ?>">    
                             
                             ID Client
                             <input type="text"  class="input-block-level" disabled placeholder="ID Client" name="ID_Client" value="<?php echo $ID_Client; ?>">    
@@ -239,8 +239,17 @@
                             <input type="text"  class="input-block-level" disabled placeholder="Statut de la commande" name="Statut_Commande" value="<?php echo $Statut_Commande; ?>">
                             
                            
-                            Nouveau statut de la commande (Preparation, Prete ou Envoyee)
-                            <input type="text"  class="input-block-level"  placeholder="Nouveau statut de la commande" name="Statut_CommandeM" >
+                            Nouveau statut de la commande
+                            
+                            <select   name="statut_commande">
+                                <option disabled selected value='0'>Nouveau statut de la commande</option>
+                            <?php
+                            // On affiche chaque entrée une à une
+                            foreach ($statut_commande as $key => $donnees) {
+                                echo '<option value="' . $donnees['statut_commande'] . '">' . $donnees['statut_commande'] . '</option>'; //ou bien $donnees['monchamp']
+                            }
+                            ?>
+                            </select>
                             
 
                           
