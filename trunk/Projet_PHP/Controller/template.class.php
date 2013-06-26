@@ -42,7 +42,18 @@ class template {
            $connect_nav .= '</p></div>';
           
            $this->registry->template->connect_nav = $connect_nav;
-           $this->registry->template->nb_article = count(@$_SESSION['user']['panier']);
+           $count = '';
+           if(isset($_SESSION['user']['panier']))
+           {
+           $count = count($_SESSION['user']['panier']);
+
+           if($_SESSION['user']['panier']['total'] != null)
+           {
+               $temp =  $count;
+               $count = $temp - 1;
+           }
+           }
+           $this->registry->template->nb_article = $count;
         }
         if (file_exists($path) == false) {
             throw new Exception('Template not found in ' . $path);

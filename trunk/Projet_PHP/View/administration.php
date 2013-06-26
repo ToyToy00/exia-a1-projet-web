@@ -1,8 +1,5 @@
 <?php
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+echo $alert;
 ?>
 
 <!DOCTYPE html>
@@ -225,8 +222,8 @@
                             <form  action="<?php echo __SITE_URL ?>/administration/modifiercommande" method="POST" name="formModifierCommande" style="display:inline-block;">
 
                             
-                            <input type="text"  class="input-block-level" name="ID_Commandee" id="ID_Article3" value="<?php echo $ID_Commandee; ?>">    
                             
+                            <input type="hidden"  class="input-block-level" placeholder="ID Commande" name="ID_Commande" value="<?php echo $ID_Commandee; ?>">  
                             ID Client
                             <input type="text"  class="input-block-level" disabled placeholder="ID Client" name="ID_Client" value="<?php echo $ID_Client; ?>">    
                             ID Adresse

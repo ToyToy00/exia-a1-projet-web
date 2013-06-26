@@ -18,6 +18,12 @@ class catalogue_class extends router {
     function article($id = NULL) {
         if ($id != NULL) {
             $tab = $this->registry->db->catalogue_pdo->select_article($id);
+            if($tab['Stock'] <= 0)
+            {
+                $this->registry->template->stock = 'hors stock';
+            }else{
+                $this->registry->template->stock = 'En Stock';
+            }
             $this->getCategories();
             $this->registry->template->article = $tab;
             $this->registry->template->show('detail_article');

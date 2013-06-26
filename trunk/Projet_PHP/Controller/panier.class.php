@@ -112,6 +112,18 @@ class panier_class extends router {
     function add() {
         if (isset($_POST['id'])) {                   //          id_article en id est = a la quantité
             $_SESSION['user']['panier'][$_POST['id']] = 1;
+            $count = '';
+           if(isset($_SESSION['user']['panier']))
+           {
+           $count = count($_SESSION['user']['panier']);
+
+           if($_SESSION['user']['panier']['total'] != null)
+           {
+               $temp =  $count;
+               $count = $temp - 1;
+           }
+           }
+           echo $count;
         }
     }
 

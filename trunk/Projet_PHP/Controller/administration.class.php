@@ -11,6 +11,15 @@ class administration_class extends router {
     function index() {
         if (isset($_SESSION['user']['user_admin'])) {
             $this->init();
+            $tab = $this->registry->db->administration_pdo->select_seuil_stock();
+            $temp = '';
+            foreach ($tab as $key => $value) {
+                if ($value['Stock'] < $value['Seuil']) {
+                    $temp .= '<script> alert("Il faut commander l\'article ID :  ' . $value['ID_Article'] . '"); </script>';
+                }
+            }
+            $this->registry->template->alert = $temp;
+
             $this->registry->template->show('administration');
         } else {
             $this->registry->template->message = "Vous n'êtes pas un admin";
@@ -37,8 +46,9 @@ class administration_class extends router {
         $this->registry->template->Date_Commande = '';
         $this->registry->template->Paiement = '';
         $this->registry->template->ID_Commande = '';
-        $this->registry->template->statut_commande ='';
-        $this->registry->template->ID_Commandee ='';
+        $this->registry->template->statut_commande = '';
+        $this->registry->template->ID_Commandee = '';
+        $this->registry->template->alert = '';
 
         $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
         $reponse2 = $this->registry->db->administration_pdo->ListeDeroulanteArticle();
@@ -46,12 +56,12 @@ class administration_class extends router {
         $reponse4 = $this->registry->db->administration_pdo->ListeDeroulanteCommande();
         $reponse5 = $this->registry->db->administration_pdo->ListeDeroulanteStatut();
 
-        
+
         $this->registry->template->ttype = $reponse;
         $this->registry->template->Titre = $reponse2;
         $this->registry->template->TTitre = $reponse3;
         $this->registry->template->ID_Commande = $reponse4;
-        $this->registry->template->statut_commande = $reponse5;  
+        $this->registry->template->statut_commande = $reponse5;
     }
 
     function ajoutarticle() {
@@ -78,13 +88,13 @@ class administration_class extends router {
                 $reponse = $this->registry->db->administration_pdo->ListeDeroulanteType();
                 $this->registry->template->type = $reponse;
                 echo "<script> alert('Succès') </script>";
-
+                $this->registry->template->ID_CommandeString = '';
                 $this->init();
 
                 $this->registry->template->show('administration');
             } else {
                 echo "<script> alert('Champs non remplis') </script>";
-
+                $this->registry->template->ID_CommandeString = '';
                 $this->init();
 
                 $this->registry->template->show('administration');
@@ -114,7 +124,7 @@ class administration_class extends router {
             $this->registry->template->seuil = $tab['Seuil'];
             $this->registry->template->stock = $tab['Stock'];
             $this->registry->template->statut = $tab['Statut'];
-
+            $this->registry->template->ID_CommandeString = '';
 
             $this->registry->template->show('administration');
         } else {
@@ -141,13 +151,13 @@ class administration_class extends router {
             if ($theme != '' && $image != '' && $prix != '' && $type != '' && $titre != '' && $date_edition != '' && $description != '' && $editeur != '' && $seuil != '' && $stock != '' && $statut != '' && is_numeric($prix) && is_numeric($seuil) && is_numeric($stock)) {
                 $resultat = $this->registry->db->administration_pdo->UpdateArticle($id_article, $theme, $image, $prix, $type, $titre, $date_edition, $description, $editeur, $seuil, $stock, $statut);
                 echo "<script> alert('Succès') </script>";
-
+                $this->registry->template->ID_CommandeString = '';
                 $this->init();
 
                 $this->registry->template->show('administration');
             } else {
                 echo "<script> alert('Champs non remplis ou mal renseigné') </script>";
-
+                $this->registry->template->ID_CommandeString = '';
                 $this->init();
 
                 $this->registry->template->show('administration');
@@ -165,7 +175,7 @@ class administration_class extends router {
             $resultat = $this->registry->db->administration_pdo->SupprimerArticle($id_article);
 
             echo "<script> alert('Succès') </script>";
-
+            $this->registry->template->ID_CommandeString = '';
             $this->init();
 
             $this->registry->template->show('administration');
@@ -174,15 +184,30 @@ class administration_class extends router {
 
     function modifiercommande() {
         if (isset($_SESSION['user']['user_admin'])) {
-            $idcommande = ($_POST['ID_Commandee']);
+            $idcommande = ($_POST['ID_Commande']);
             $statut_commande = ($_POST['statut_commande']);
 
-            $resultat = $this->registry->db->administration_pdo->UpdateCommande($idcommande, $statut_commande);
-            
+            if ($statut_commande == 'Envoyee') {
+                $detail_commandes = $this->registry->db->administration_pdo->Detail_commande($idcommande);
+
+                $verif = 0;
+                foreach ($detail_commandes as $key => $value) {
+                    if ($value['Stock'] < 0) {
+                        $verif = 1;
+                    }
+                }
+                if ($verif != 1) {
+                    foreach ($detail_commandes as $key => $value) {
+                        $this->registry->db->administration_pdo->update_stock($value['ID_Article'], $value['Quantite']);
+                    }
+                    $resultat = $this->registry->db->administration_pdo->UpdateCommande($idcommande, $statut_commande);
+                }
+            }
+
             echo "<script> alert('Succes') </script>";
-            
+
             $this->init();
-            
+
             $this->registry->template->show('administration');
         } else {
             echo 'ttestt';

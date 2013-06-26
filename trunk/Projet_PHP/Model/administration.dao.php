@@ -7,6 +7,29 @@ class administration_pdo {
         
     }
     
+    public function select_seuil_stock()
+    {
+        $con = db::getInstance();
+        $req = "SELECT ID_Article,Seuil,Stock FROM articles";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
+    
+    public function Detail_commande($ID_Commande)
+    {
+        $con = db::getInstance();
+        $req = "SELECT * FROM `detail_commande` INNER JOIN articles ON detail_commande.ID_Article = articles.ID_Article WHERE ID_Commande = $ID_Commande";
+        $query = $con->query($req);
+        return $query->fetchAll();
+    }
+    public function update_stock($ID_Article, $Quantite)
+    {
+        $con = db::getInstance();
+        $req = "UPDATE  exiastore.articles SET Stock = Stock - $Quantite WHERE ID_Article = $ID_Article";
+        $exec = $con->exec($req);
+        return 1;
+    }
+    
     public function ListeDeroulanteType()
     {
         $con = db::getInstance();
@@ -34,7 +57,7 @@ class administration_pdo {
     public function ListeDeroulanteCommande()
     {
         $con = db::getInstance();
-        $req = "SELECT ID_Commande FROM commandes";
+        $req = "SELECT ID_Commande FROM commandes WHERE Statut_Commande != 'Envoyee'";
         $query = $con->query($req);
         return $query->fetchAll();
     }
